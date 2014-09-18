@@ -1,0 +1,412 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>[转]简明 Vim 练级攻略 | 笑的自然技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Stone Xing">
+    
+    <meta name="description" content="基本必须
+&amp;nbsp; &amp;nbsp; i → Insert 模式，按 ESC 回到 Normal 模式.
+&amp;nbsp; &amp;nbsp; x → 删当前光标所在的一个字符。
+&amp;nbsp; &amp;nbsp; :wq → 存盘 &amp;#43; 退出 (:w 存盘, :q 退出) &amp;nbsp; （注：:w 后可以跟文">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="笑的自然技术博客" title="笑的自然技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="笑的自然技术博客">笑的自然技术博客</a></h1>
+				<h2 class="blog-motto">好记性不如烂笔头</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:localhost:8082">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/04/03/-转-简明-Vim-练级攻略/" title="[转]简明 Vim 练级攻略" itemprop="url">[转]简明 Vim 练级攻略</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://localhost:8082" title="Stone Xing">Stone Xing</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-04-03T01:48:57.000Z" itemprop="datePublished">4月 3 2014</time>
+    更新日期:<time datetime="2014-09-13T05:44:36.000Z" itemprop="dateModified">9月 13 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
+		
+		<p>基本必须</p>
+<p>&nbsp; &nbsp; i → Insert 模式，按 ESC 回到 Normal 模式.</p>
+<p>&nbsp; &nbsp; x → 删当前光标所在的一个字符。</p>
+<p>&nbsp; &nbsp; :wq → 存盘 &#43; 退出 (:w 存盘, :q 退出) &nbsp; （注：:w 后可以跟文件名）</p>
+<p>&nbsp; &nbsp; dd → 删除当前行，并把删除的行存到剪贴板里</p>
+<p>&nbsp; &nbsp; p → 粘贴剪贴板</p>
+<p>&nbsp; &nbsp; hjkl (强例推荐使用其移动光标，但不必需) →你也可以使用光标键 (←↓↑→). 注: j 就像下箭头</p>
+<p>&nbsp; &nbsp; :help &lt;command&gt; → 显示相关命令的帮助</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>插入模式</p>
+<p>&nbsp; &nbsp; a → 在光标后插入</p>
+<p>&nbsp; &nbsp; o → 在当前行后插入一个新行</p>
+<p>&nbsp; &nbsp; O → 在当前行前插入一个新行</p>
+<p>&nbsp; &nbsp; cw → 替换从光标所在位置后到一个单词结尾的字符</p>
+<p>快速移动</p>
+<p>&nbsp; &nbsp; 0 → 数字零，到行头</p>
+<p>&nbsp; &nbsp; ^ → 到本行第一个不是blank字符的位置（所谓blank字符就是空&#26684;，tab，换行，回车等）</p>
+<p>&nbsp; &nbsp; $ → 到本行行尾</p>
+<p>&nbsp; &nbsp; g_ → 到本行最后一个不是blank字符的位置。</p>
+<p>&nbsp; &nbsp; /pattern → 搜索 pattern 的字符串（注：如果搜索出多个匹配，可按n键到下一个）</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; NG → 到第 N 行 （注：注意命令中的G是大写的，另我一般使用 : N 到第N行，如 :137 到第137行）</p>
+<p>&nbsp; &nbsp; gg → 到第一行。（注：相当于1G，或 :1）</p>
+<p>&nbsp; &nbsp; G → 到最后一行。</p>
+<p>&nbsp; &nbsp; w → 到下一个单词的开头。（默认上来说，一个单词由字母，数字和下划线组成）</p>
+<p>&nbsp; &nbsp; e → 到下一个单词的结尾。</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; % → 匹配括号移动，包括 (, {, [. （注：你需要把光标先移到括号上）</p>
+<p>&nbsp; &nbsp; <em> 和 # → 匹配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词（</em>是下一个，#是上一个）</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; fa → 到下一个为a的字符处，你也可以fs到下一个为s的字符。</p>
+<p>&nbsp; &nbsp; t, → 到逗号前的第一个字符。逗号可以变成其它字符。</p>
+<p>&nbsp; &nbsp; 3fa → 在当前行查找第三个出现的a。</p>
+<p>&nbsp; &nbsp; F 和 T → 和 f 和 t 一样，只不过是相反方向。</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>拷贝/粘贴</p>
+<p>&nbsp; &nbsp; P → 粘贴（注：p/P都可以，p是表示在当前位置之后，P表示在当前位置之前）</p>
+<p>&nbsp; &nbsp; yy → 拷贝当前行当行于 ddP</p>
+<p>Undo/Redo</p>
+<p>&nbsp; &nbsp; u → undo</p>
+<p>&nbsp; &nbsp; &lt;C-r&gt; → redo</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>打开/保存/退出/改变文件</p>
+<p>&nbsp; &nbsp; :e &lt;path/to/file&gt; → 打开一个文件</p>
+<p>&nbsp; &nbsp; :w → 存盘</p>
+<p>&nbsp; &nbsp; :saveas &lt;path/to/file&gt; → 另存为 &lt;path/to/file&gt;</p>
+<p>&nbsp; &nbsp; :x， ZZ 或 :wq → 保存并退出 (:x 表示仅在需要时保存，ZZ不需要输入冒号并回车)</p>
+<p>&nbsp; &nbsp; :q! → 退出不保存 :qa! 强行退出所有的正在编辑的文件，就算别的文件有更改。</p>
+<p>&nbsp; &nbsp; :bn 和 :bp → 你可以同时打开很多文件，使用这两个命令来切换下一个或上一个文件。（注：我喜欢使用:n到下一个文件）</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>重复动作</p>
+<p>&nbsp; &nbsp; . → (小数点) 可以重复上一次的命令</p>
+<p>&nbsp; &nbsp; N&lt;command&gt; → 重复某个命令N次（如 2dd-删除2行、3p-粘贴文本3次）</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>连动命令</p>
+<p>&nbsp; &nbsp; &lt;start position&gt;&lt;command&gt;&lt;end position&gt;</p>
+<p>&nbsp; &nbsp; command：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; y (粘贴)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; d (删除)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; v (可视化的选择)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; gU (变大写)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; gu (变小写)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 等等 &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; 如 0y$ 命令意味着：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 0 → 先到行头</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; y → 从这里开始拷贝</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; $ → 拷贝到本行最后一个字符</p>
+<p>&nbsp; &nbsp; ye → 从当前位置拷贝到本单词的最后一个字符。</p>
+<p>&nbsp; &nbsp; y2/foo → 拷贝2个 “foo” 之间的字符串。</p>
+<p>区域选择</p>
+<p>&nbsp; &nbsp; 在visual 模式下，这些命令很强大，其命令&#26684;式为：</p>
+<p>&nbsp; &nbsp; &lt;action&gt;a&lt;object&gt; 或 &lt;action&gt;i&lt;object&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; action可以是任何的命令，如 d (删除), y (拷贝), v (可以视模式选择)。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; object 可能是：&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; w 一个单词，&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; W 一个以空&#26684;为分隔的单词，&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; s 一个句字，&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p 一个段落。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 也可以是一个特别的字符：&quot;、 ‘、 )、 }、 ]。</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>块操作</p>
+<p>&nbsp; &nbsp; &lt;Ctrl &#43; v&gt;</p>
+<p>&nbsp; &nbsp; 典型列编辑操作： 0 &lt;C-v&gt; &lt;C-d&gt; I— [ESC]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ^ → 到行头</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;C-v&gt; → 开始块操作</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;C-d&gt; → 向下移动 (你也可以使用hjkl来移动光标，或是使用%，或是别的)</p>
+<p>自动提示</p>
+<p>&nbsp; &nbsp; &lt;Ctrl &#43; n&gt;、&lt;Ctrl &#43; p&gt;</p>
+<p>&nbsp; &nbsp; 在 Insert 模式下，你可以输入一个词的开头，然后按 &lt;Ctrl &#43; n&gt;或是&lt;Ctrl &#43; p&gt;，自动补齐功能就出现了</p>
+<p>宏录制： qa 操作序列 q, @a, @@</p>
+<p>&nbsp; &nbsp; qa 把你的操作记录在寄存器 a。</p>
+<p>&nbsp; &nbsp; 于是 @a 会replay被录制的宏。</p>
+<p>&nbsp; &nbsp; @@ 是一个快捷键用来replay最新录制的宏。</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; 例:</p>
+<p>&nbsp; &nbsp; 在一个只有一行且这一行只有“1”的文本中，键入如下命令：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; qaYp&lt;C-a&gt;q →</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; qa 开始录制</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Yp 复制行.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;C-a&gt; 增加1.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; q 停止录制.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @a → 在1下面写下 2</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @@ → 在2 正面写下3</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 现在做 100@@ 会创建新的100行，并把数据增加到 103.</p>
+<p>可视化选择：&nbsp;</p>
+<p>&nbsp; &nbsp; v, V, &lt;Ctrl &#43; v&gt;</p>
+<p>&nbsp; &nbsp; 使用 v 和 V 选择一段文本，然后：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; J → 把所有的行连接起来（变成一行）</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt; 或 &gt; → 左右缩进</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; = → 自动给缩进 （陈皓注：这个功能相当强大，我太喜欢了）</p>
+<p>&nbsp; &nbsp; 在所有被选择的行后加上点东西：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;C-v&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 选中相关的行 (可使用 j 或 &lt;C-d&gt; 或是 /pattern 或是 % 等……)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; $ 到行最后</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; A, 输入字符串，按 ESC。</p>
+<p>引自：<a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">http://coolshell.cn/articles/5426.html</a></p>
+<pre><code>        &lt;<span class="operator">div</span>&gt;
+            作者：xxd851116 发表于<span class="number">2014</span>-<span class="number">4</span>-<span class="number">3</span> <span class="number">9</span>:<span class="number">48</span>:<span class="number">57</span> [原文链接](<span class="keyword">http</span>://blog.csdn.net/xxd851116/article/details/<span class="number">22850167</span>)
+        &lt;/<span class="operator">div</span>&gt;
+        &lt;<span class="operator">div</span>&gt;
+        阅读：<span class="number">150</span> 评论：<span class="number">0</span> [查看评论](<span class="keyword">http</span>://blog.csdn.net/xxd851116/article/details/<span class="number">22850167</span><span class="comment">#comments)</span>
+        &lt;/<span class="operator">div</span>&gt;
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://localhost:8082/2014/04/03/-转-简明-Vim-练级攻略/" data-title="[转]简明 Vim 练级攻略 | 笑的自然技术博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/04/04/-原-Centos6-5使用yum安装mysql——快速上手必备/" title="[原]Centos6.5使用yum安装mysql——快速上手必备">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  [原]Centos6.5使用yum安装mysql——快速上手必备</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/03/26/-原-Java中Json字符串的序列化与反序列化/"  title="[原]Java中Json字符串的序列化与反序列化">
+ <strong>NEXT:</strong><br/> 
+ <span>[原]Java中Json字符串的序列化与反序列化
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2014 
+		
+		<a href="http://localhost:8082" target="_blank" title="Stone Xing">Stone Xing</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
