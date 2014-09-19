@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/9 | 邢秀东的网络日志</title>
+  <title>Tag: mysql | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="好记性不如烂笔头">
 <meta property="og:type" content="website">
 <meta property="og:title" content="邢秀东的网络日志">
-<meta property="og:url" content="http://localhost:8082/archives/2014/09/">
+<meta property="og:url" content="http://localhost:8082/tags/mysql/">
 <meta property="og:site_name" content="邢秀东的网络日志">
 <meta property="og:description" content="好记性不如烂笔头">
 <meta name="twitter:card" content="summary">
@@ -73,10 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--dream-starts" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--centos6.5-yum-install-mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/19/-dream-starts/" class="article-date">
-  <time datetime="2014-09-19T01:41:32.000Z" itemprop="datePublished">9月 19 2014</time>
+    <a href="/2014/04/04/-centos6.5-yum-install-mysql/" class="article-date">
+  <time datetime="2014-04-04T09:04:08.000Z" itemprop="datePublished">4月 4 2014</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/19/-dream-starts/">从这里开始</a>
+      <a class="article-title" href="/2014/04/04/-centos6.5-yum-install-mysql/">Centos6.5使用yum安装mysql——快速上手必备</a>
     </h1>
   
 
@@ -95,28 +95,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
-<p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
-<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
-<p>关于hexo的中文文档更是到处都是，不作相关说明。看到了hexo+github的方案后马上就有了答案。对hexo爱不释手！</p>
-<p>hexo上手特别快，简单、简洁，在使用的过程中更发现问题，且排查容易。hexo是nodejs开发的，后期可借这个力把nodejs摸摸。</p>
-<p>以前的csdn博客转移过来可能还需要一些时间，没有再网上找到html转markdown的好的解决方案。打算后期有时间再一点一点的转。</p>
-<p>域名考虑了很久，还是用我的名字吧。</p>
-<p>总之，哥今天正式搬家啦。</p>
+        <h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span></div></pre></td></tr></table></figure>
+
+<p>安装结果：</p>
+<p>Installed:<br>mysql-server.x86_64 0:5.1.73-3.el6_5  </p>
+<p>Dependency Installed:<br>mysql.x86_64 0:5.1.73-3.el6_5<br>perl-DBD-MySQL.x86_64 0:4.013-3.el6<br>perl-DBI.x86_64 0:1.609-4.el6  </p>
+<h1 id="第2步、设置开机启动">第2步、设置开机启动</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chkconfig mysqld <span class="command"><span class="keyword">on</span></span></div></pre></td></tr></table></figure>
+
+<h1 id="第3步、启动MySql服务">第3步、启动MySql服务</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">service</span> <span class="title">mysqld</span> start</span></div></pre></td></tr></table></figure>
+
+<h1 id="第4步、设置MySQL的root用户设置密码">第4步、设置MySQL的root用户设置密码</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root</div></pre></td></tr></table></figure>
+
+<p>Welcome to the MySQL monitor. &nbsp;Commands end with ; or \g.<br>…… 省略了一些行<br>mysql&gt; </p>
+<figure class="highlight select"><figcaption><span>user,host,password from mysql.user;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">查询用户的密码，都为空，用下面的命令设置root的密码为root</div><div class="line"></div><div class="line">mysql&<span class="keyword">gt</span>;</div></pre></td></tr></table></figure>
+
+<p>set password for root@localhost=password(‘root’);</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mysql&<span class="keyword">gt</span>; <span class="keyword">exit</span></div><div class="line"></div><div class="line"><span class="comment"># 第5步、用新密码登陆</span></div></pre></td></tr></table></figure>
+
+<p> mysql -u root -p </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 第6步、基本命令</div><div class="line"></div><div class="line">* <span class="operator"><span class="keyword">show</span> <span class="keyword">databases</span>;</span> //查看系统已存在的数据库</div><div class="line">* <span class="operator"><span class="keyword">use</span> databasesname;</span> &nbsp; //选择需要使用的数据库  </div><div class="line">* <span class="operator"><span class="keyword">drop</span> <span class="keyword">database</span> databasename;</span> //删除选定的数据库  </div><div class="line">* exit //退出数据库的连接  </div><div class="line">* <span class="operator"><span class="keyword">create</span> <span class="keyword">database</span> test01;</span> &nbsp; &nbsp;//建立名为test的数据库</div><div class="line">* <span class="operator"><span class="keyword">show</span> <span class="keyword">tables</span>;</span> // 列出当前数据库下的表</div><div class="line"></div><div class="line">其他基本的增删改查使用标准SQL即可</div><div class="line"></div><div class="line"></div><div class="line"># 第7步、开放远程登录权限</div></pre></td></tr></table></figure>
+
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘root’ WITH GRANT OPTION;</p>
+<p>FLUSH PRIVILEGES;<br>```</p>
+<p>（完）</p>
+<blockquote>
+<p>作者：xxd851116 发表于2014-4-4 17:04:08 <a href="http://blog.csdn.net/xxd851116/article/details/22947891" target="_blank" rel="external">原文链接</a><br>阅读：1400 评论：0 <a href="http://blog.csdn.net/xxd851116/article/details/22947891#comments" target="_blank" rel="external">查看评论</a></p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://localhost:8082/2014/09/19/-dream-starts/" data-id="bo9qrrnpdco88vyg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://localhost:8082/2014/04/04/-centos6.5-yum-install-mysql/" data-id="26348zzi1pp97sh1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://localhost:8082/2014/09/19/-dream-starts/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://localhost:8082/2014/04/04/-centos6.5-yum-install-mysql/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diary/">diary</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 
     </footer>
   </div>
