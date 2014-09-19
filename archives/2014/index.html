@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/19/-dream-starts/">从这里开始</a>
+      <a class="article-title" href="/2014/09/19/-dream-starts/">新的开始</a>
     </h1>
   
 
@@ -148,31 +148,64 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
 
 <p>安装结果：</p>
 <p>Installed:<br>mysql-server.x86_64 0:5.1.73-3.el6_5  </p>
 <p>Dependency Installed:<br>mysql.x86_64 0:5.1.73-3.el6_5<br>perl-DBD-MySQL.x86_64 0:4.013-3.el6<br>perl-DBI.x86_64 0:1.609-4.el6  </p>
 <h1 id="第2步、设置开机启动">第2步、设置开机启动</h1>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chkconfig mysqld <span class="command"><span class="keyword">on</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chkconfig mysqld on</div></pre></td></tr></table></figure>
 
 <h1 id="第3步、启动MySql服务">第3步、启动MySql服务</h1>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">service</span> <span class="title">mysqld</span> start</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysqld start</div></pre></td></tr></table></figure>
 
 <h1 id="第4步、设置MySQL的root用户设置密码">第4步、设置MySQL的root用户设置密码</h1>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root</div></pre></td></tr></table></figure>
 
-<p>Welcome to the MySQL monitor. &nbsp;Commands end with ; or \g.<br>…… 省略了一些行<br>mysql&gt; </p>
-<figure class="highlight select"><figcaption><span>user,host,password from mysql.user;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">查询用户的密码，都为空，用下面的命令设置root的密码为root</div><div class="line"></div><div class="line">mysql&<span class="keyword">gt</span>;</div></pre></td></tr></table></figure>
+<p>Welcome to the MySQL monitor. &nbsp;Commands end with ; or \g.<br>…… 省略了一些行<br>mysql&gt; select user,host,password from mysql.user;</p>
+<p>查询用户的密码，都为空，用下面的命令设置root的密码为root<br>mysql&gt; set password for root@localhost=password(‘root’);<br>mysql&gt; exit</p>
+<h1 id="第5步、用新密码登陆">第5步、用新密码登陆</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root -p</div></pre></td></tr></table></figure>
 
-<p>set password for root@localhost=password(‘root’);</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mysql&<span class="keyword">gt</span>; <span class="keyword">exit</span></div><div class="line"></div><div class="line"><span class="comment"># 第5步、用新密码登陆</span></div></pre></td></tr></table></figure>
+<h1 id="第6步、基本命令">第6步、基本命令</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show databases;</td>
+<td>查看系统已存在的数据库</td>
+</tr>
+<tr>
+<td>use databasesname;</td>
+<td>选择需要使用的数据库</td>
+</tr>
+<tr>
+<td>drop database databasename;</td>
+<td>删除选定的数据库</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>退出数据库的连接</td>
+</tr>
+<tr>
+<td>create database test01;</td>
+<td>建立名为test的数据库</td>
+</tr>
+<tr>
+<td>show tables;</td>
+<td>列出当前数据库下的表</td>
+</tr>
+</tbody>
+</table>
+<p>其他基本的增删改查使用标准SQL即可</p>
+<h1 id="第7步、开放远程登录权限">第7步、开放远程登录权限</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span>  </div><div class="line"><span class="operator"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span></div></pre></td></tr></table></figure>
 
-<p> mysql -u root -p </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 第6步、基本命令</div><div class="line"></div><div class="line">* <span class="operator"><span class="keyword">show</span> <span class="keyword">databases</span>;</span> //查看系统已存在的数据库</div><div class="line">* <span class="operator"><span class="keyword">use</span> databasesname;</span> &nbsp; //选择需要使用的数据库  </div><div class="line">* <span class="operator"><span class="keyword">drop</span> <span class="keyword">database</span> databasename;</span> //删除选定的数据库  </div><div class="line">* exit //退出数据库的连接  </div><div class="line">* <span class="operator"><span class="keyword">create</span> <span class="keyword">database</span> test01;</span> &nbsp; &nbsp;//建立名为test的数据库</div><div class="line">* <span class="operator"><span class="keyword">show</span> <span class="keyword">tables</span>;</span> // 列出当前数据库下的表</div><div class="line"></div><div class="line">其他基本的增删改查使用标准SQL即可</div><div class="line"></div><div class="line"></div><div class="line"># 第7步、开放远程登录权限</div></pre></td></tr></table></figure>
-
-<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘root’ WITH GRANT OPTION;</p>
-<p>FLUSH PRIVILEGES;<br>```</p>
 <p>（完）</p>
 <blockquote>
 <p>作者：xxd851116 发表于2014-4-4 17:04:08 <a href="http://blog.csdn.net/xxd851116/article/details/22947891" target="_blank" rel="external">原文链接</a><br>阅读：1400 评论：0 <a href="http://blog.csdn.net/xxd851116/article/details/22947891#comments" target="_blank" rel="external">查看评论</a></p>
@@ -240,7 +273,7 @@
       <ul>
         
           <li>
-            <a href="/2014/09/19/-dream-starts/">从这里开始</a>
+            <a href="/2014/09/19/-dream-starts/">新的开始</a>
           </li>
         
           <li>
