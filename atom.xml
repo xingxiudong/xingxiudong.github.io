@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[邢秀东的网络日志]]></title>
+  <subtitle><![CDATA[点滴记忆，培养兴趣，积累经验，成长自我，分享快乐]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://xingxiudong.com/"/>
+  <updated>2014-09-22T01:37:59.888Z</updated>
+  <id>http://xingxiudong.com/</id>
+  
+  <author>
+    <name><![CDATA[Xing XiuDong]]></name>
+    <email><![CDATA[xingxiudong@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[新的开始]]></title>
+    <link href="http://xingxiudong.com/2014/09/19/dream-starts/"/>
+    <id>http://xingxiudong.com/2014/09/19/dream-starts/</id>
+    <published>2014-09-19T01:41:32.000Z</published>
+    <updated>2014-09-19T09:20:32.000Z</updated>
+    <content type="html"><![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
+<p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
+<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
+<p>关于hexo的中文文档更是到处都是，不作相关说明。看到了hexo+github的方案后马上就有了答案。对hexo爱不释手！</p>
+<p>hexo上手特别快，简单、简洁，在使用的过程中更发现问题，且排查容易。hexo是nodejs开发的，后期可借这个力把nodejs摸摸。</p>
+<p>以前的csdn博客转移过来可能还需要一些时间，没有再网上找到html转markdown的好的解决方案。打算后期有时间再一点一点的转。</p>
+<p>域名考虑了很久，还是用我的名字吧。</p>
+<p>总之，哥今天正式搬家啦。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd8]]>
+    </summary>
+    
+      <category term="感悟" scheme="http://xingxiudong.com/categories/%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Centos6.5使用yum安装mysql——快速上手必备]]></title>
+    <link href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/"/>
+    <id>http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/</id>
+    <published>2014-04-04T09:04:08.000Z</published>
+    <updated>2014-09-19T09:22:07.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
+
+<p>安装结果：</p>
+<p>Installed:<br>mysql-server.x86_64 0:5.1.73-3.el6_5  </p>
+<p>Dependency Installed:<br>mysql.x86_64 0:5.1.73-3.el6_5<br>perl-DBD-MySQL.x86_64 0:4.013-3.el6<br>perl-DBI.x86_64 0:1.609-4.el6  </p>
+<h1 id="第2步、设置开机启动">第2步、设置开机启动</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chkconfig mysqld on</div></pre></td></tr></table></figure>
+
+<h1 id="第3步、启动MySql服务">第3步、启动MySql服务</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysqld start</div></pre></td></tr></table></figure>
+
+<h1 id="第4步、设置MySQL的root用户设置密码">第4步、设置MySQL的root用户设置密码</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root</div></pre></td></tr></table></figure>
+
+<p>Welcome to the MySQL monitor. &nbsp;Commands end with ; or \g.<br>…… 省略了一些行<br>mysql&gt; select user,host,password from mysql.user;</p>
+<p>查询用户的密码，都为空，用下面的命令设置root的密码为root<br>mysql&gt; set password for root@localhost=password(‘root’);<br>mysql&gt; exit</p>
+<h1 id="第5步、用新密码登陆">第5步、用新密码登陆</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root -p</div></pre></td></tr></table></figure>
+
+<h1 id="第6步、基本命令">第6步、基本命令</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show databases;</td>
+<td>查看系统已存在的数据库</td>
+</tr>
+<tr>
+<td>use databasesname;</td>
+<td>选择需要使用的数据库</td>
+</tr>
+<tr>
+<td>drop database databasename;</td>
+<td>删除选定的数据库</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>退出数据库的连接</td>
+</tr>
+<tr>
+<td>create database test01;</td>
+<td>建立名为test的数据库</td>
+</tr>
+<tr>
+<td>show tables;</td>
+<td>列出当前数据库下的表</td>
+</tr>
+</tbody>
+</table>
+<p>其他基本的增删改查使用标准SQL即可</p>
+<h1 id="第7步、开放远程登录权限">第7步、开放远程登录权限</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span>  </div><div class="line"><span class="operator"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span></div></pre></td></tr></table></figure>
+
+<p>（完）</p>
+<blockquote>
+<p>作者：xxd851116 发表于2014-4-4 17:04:08 <a href="http://blog.csdn.net/xxd851116/article/details/22947891" target="_blank" rel="external">原文链接</a><br>阅读：1400 评论：0 <a href="http://blog.csdn.net/xxd851116/article/details/22947891#comments" target="_blank" rel="external">查看评论</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre]]>
+    </summary>
+    
+      <category term="database" scheme="http://xingxiudong.com/tags/database/"/>
+    
+      <category term="mysql" scheme="http://xingxiudong.com/tags/mysql/"/>
+    
+      <category term="yum" scheme="http://xingxiudong.com/tags/yum/"/>
+    
+      <category term="Mysql" scheme="http://xingxiudong.com/categories/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[[原]回首2013——2013年我学到的]]></title>
+    <link href="http://xingxiudong.com/2013/12/27/looking-back-to-2013/"/>
+    <id>http://xingxiudong.com/2013/12/27/looking-back-to-2013/</id>
+    <published>2013-12-27T02:25:21.000Z</published>
+    <updated>2014-09-19T09:19:47.000Z</updated>
+    <content type="html"><![CDATA[<ol>
+<li>用一种平和的心态面对生活</li>
+<li>不能把钱看得太重</li>
+<li>最幸福的不仅仅是挣钱，和家人在一起能抚慰我的心灵</li>
+<li>和朋友相处要坦诚，为人和&#34108;</li>
+<li>有空多喝别人沟通，能获得更多的信息</li>
+<li>把你认识的人都想成是好人，因为他们真是好人，人以类聚</li>
+<li>不要和别人比，幸福源自你对生活的热爱，而不是对money的追随</li>
+<li>团队很重要，塑造一个高效的团队还需要多学学管理</li>
+<li>不适合做市场、做业务，也不喜欢，兴趣更不在那里</li>
+<li>关系在合作中很重要，若&#20284;合同门槛，但产品的交付还是要靠踏实做事</li>
+<li>努力工作，认真做事，是你当下工作的方向</li>
+<li>合理的跳槽便于市场人才的流动和自身的发展</li>
+<li>要以一种坦诚的心面对团队成员</li>
+<li>不在团队成员面前表现自己忧虑、忐忑、急躁，这样会让他们感觉你不自信</li>
+<li>忌讳和团队成员讨论你觉得影响团队的话题</li>
+<li>多和团队成员沟通，工作中有时间就他们的位子坐坐，他们会有问题求助于你，也能拉近你们之间的距离</li>
+<li>遇到问题不能逃避，第一时间和团队成员真诚的沟通，告诉他们你真实的想法，他们会理解的</li>
+<li>做事要有计划，先打个草稿</li>
+<li>不能不考虑团队的利益</li>
+<li>项目一定要有清晰的目标，短期和长期，因为这样能让你立场坚定，话语有分量</li>
+<li>做事不能急躁，一步一个脚印，要踏实</li>
+<li>有很多项目都是客户“没需求”，原型出来后又“有需求”，我们没有一种良好的应对机制，更不能急于求成</li>
+<li>工作中不能完全墨守成规，也要适当的按照自己的兴趣有些创新</li>
+<li>要有胆量去挑战高度，往往接近终点的时候最难爬，但坚持你就一定能达到</li>
+<li>要有认识自己的能力，知难而退</li>
+<li>多思考你的工作环境，多利用你的人际网，机会就在不经意之间</li>
+<li>不要在你冲动的时候下决定</li>
+<li>工作上可能影响家庭的事情要和人家多沟通</li>
+<li>不能人云亦云，低调是一种修养</li>
+<li>maven的软件生命周期和依赖管理是一种理念</li>
+<li>oracle在linux（centos）上安装也要用xwindow图形界面</li>
+<li>原来HTTP有长连接</li>
+<li>Tomcat比Resin用起来更简单</li>
+<li>jQuery的.bind()、.live()和.delegate()事件代理很强大</li>
+<li>去思科的面试让我觉得做技术不是没有方向</li>
+<li>习惯做技术笔记，对自己和他人都有好处</li>
+<li>如果技术上（模块或功能）你实现的很复杂，很有可能方法不对</li>
+<li>简化复杂问题，把复杂的东西描述得简单，是一种本事</li>
+<li>技术很重要，是自信的筹码</li>
+<li>你还很年轻，还有时间做你喜欢做的事</li>
+</ol>
+<blockquote>
+<p>作者：笑的自然 发表于2013-12-27 10:25:21 <a href="http://blog.csdn.net/xxd851116/article/details/17605195" target="_blank" rel="external">原文链接</a><br>阅读：602 评论：1 <a href="http://blog.csdn.net/xxd851116/article/details/17605195#comments" target="_blank" rel="external">查看评论</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<ol>
+<li>用一种平和的心态面对生活</li>
+<li>不能把钱看得太重</li>
+<li>最幸福的不仅仅是挣钱，和家人在一起能抚慰我的心灵</li>
+<li>和朋友相处要坦诚，为人和&#34108;</li>
+<li>有空多喝别人沟通，能获得更多的信息</li>
+<li>]]>
+    </summary>
+    
+      <category term="感悟" scheme="http://xingxiudong.com/categories/%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
+  
+</feed>
