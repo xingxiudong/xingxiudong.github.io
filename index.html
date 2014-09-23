@@ -107,6 +107,9 @@
 <p>以前的csdn博客转移过来可能还需要一些时间，没有再网上找到html转markdown的好的解决方案。打算后期有时间再一点一点的转。</p>
 <p>域名考虑了很久，还是用我的名字吧。</p>
 <p>总之，哥今天正式搬家啦。</p>
+<blockquote>
+<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2014年9月19日<br>本文地址：<a href="http://xingxiudong.com/2014/09/19/dream-starts" target="_blank" rel="external">http://xingxiudong.com/2014/09/19/dream-starts</a></p>
+</blockquote>
 
       
     </div>
@@ -214,7 +217,7 @@
 
 <p>（完）</p>
 <blockquote>
-<p>作者：xxd851116 发表于2014-4-4 17:04:08 <a href="http://blog.csdn.net/xxd851116/article/details/22947891" target="_blank" rel="external">原文链接</a><br>阅读：1400 评论：0 <a href="http://blog.csdn.net/xxd851116/article/details/22947891#comments" target="_blank" rel="external">查看评论</a></p>
+<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2014年4月28日<br>本文地址：<a href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql" target="_blank" rel="external">http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql</a></p>
 </blockquote>
 
       
@@ -230,6 +233,92 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-oracle-create-tablespace-and-grant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/28/oracle-create-tablespace-and-grant/" class="article-date">
+  <time datetime="2013-12-28T04:35:00.000Z" itemprop="datePublished">12月 28 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Oracle/">Oracle</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。</p>
+<h1 id="一、规划">一、规划</h1>
+<p>表空间名称：yourname<br>表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）<br>用户名/密码：yourname/yourname<br>说明：表空间名称、用户名、密码开发时因便于记忆一般一致，默认为项目的名称，也可以不同。</p>
+<p><strong><strong><strong><em>**</em></strong></strong></strong> 替换下面的 yourname <strong><strong><strong><em>**</em></strong></strong></strong></p>
+<h1 id="二、创建临时表空间">二、创建临时表空间</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> <span class="string">"temp_yourname"</span></span></div><div class="line">    TEMPFILE <span class="string">'/u01/app/oracle/oradata/orcl/temp_yourname.dbf'</span></div><div class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M</div><div class="line">AUTOEXTEND <span class="keyword">ON</span></div><div class="line"><span class="keyword">NEXT</span> <span class="number">32</span>M MAXSIZE <span class="number">2048</span>M</div><div class="line">EXTENT MANAGEMENT <span class="keyword">LOCAL</span>;</div></pre></td></tr></table></figure>
+
+<p>注:</p>
+<ol>
+<li>一般数据库实例安装完成后默认有临时表空间“TEMP”，如果小型数据库用此临时表空间即可。</li>
+<li>临时表空间主要用来做查询和存放一些缓冲区数据，消耗的主要原因是需要对查询的中间结果进行排序。主要作用：索引create/rebuild/Order by/group by/Distinct/Union/intersect/minus/Sort-merge/joins等。</li>
+<li>TEMPFILE是单引号，否则会报“ORA-00972: identifier is too long”。</li>
+<li>TABLESPACE的双引号中的名称一定要全大写字符，否则在创建用户时会报“ORA-00959: tablespace ‘temp_yourname’ does not exist”。</li>
+</ol>
+<h1 id="三、创建用户表空间">三、创建用户表空间</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> <span class="string">"yourname"</span></span></div><div class="line">    LOGGING</div><div class="line">    DATAFILE <span class="string">'/u01/app/oracle/oradata/orcl/yourname.dbf'</span></div><div class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M</div><div class="line">AUTOEXTEND <span class="keyword">ON</span></div><div class="line"><span class="keyword">NEXT</span> <span class="number">32</span>M MAXSIZE UNLIMITED</div><div class="line">EXTENT MANAGEMENT <span class="keyword">LOCAL</span>;</div></pre></td></tr></table></figure>
+
+<p>注:</p>
+<ol>
+<li>DATAFILE是单引号，否则会报“ORA-00972: identifier is too long”。</li>
+<li>TABLESPACE的双引号中的名称一定要全大写字符，否则在创建用户时会报“ORA-00959: tablespace ‘yourname’ does not exist”。</li>
+</ol>
+<h1 id="四、创建用户（并指定默认表空间）">四、创建用户（并指定默认表空间）</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">USER</span> yourname <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> yourname</span></div><div class="line"><span class="keyword">DEFAULT</span> <span class="keyword">TABLESPACE</span> yourname</div><div class="line"><span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> temp_yourname;</div></pre></td></tr></table></figure>
+
+<h1 id="五、给用户授权">五、给用户授权</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">connect</span>, resource, dba <span class="keyword">TO</span> yourname;</span></div></pre></td></tr></table></figure>
+
+<h1 id="六、高级用法：创建、使用PL/SQL模板">六、高级用法：创建、使用PL/SQL模板</h1>
+<ol>
+<li>新建：工具 -&gt; 模板列表 ，右击 -&gt; “新模板”…粘贴模板文件源码。</li>
+<li>使用：新建SQL窗口 -&gt; 双击模板 -&gt; 输入参数，修改默认值如下图：<br><img src="/images/20131218-sqltemplete-init.png" alt="编辑模板参数"></li>
+<li>生成SQL代码<br><img src="/images/20131218-sqltemplete-gen.png" alt="生成SQL代码"></li>
+</ol>
+<p>（完）</p>
+<blockquote>
+<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2013年12月28日<br>本文地址：<a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant" target="_blank" rel="external">http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/" data-id="jr09xuhulyaffy03" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
 
     </footer>
   </div>
@@ -307,7 +396,7 @@
 <li>你还很年轻，还有时间做你喜欢做的事</li>
 </ol>
 <blockquote>
-<p>作者：笑的自然 发表于2013-12-27 10:25:21 <a href="http://blog.csdn.net/xxd851116/article/details/17605195" target="_blank" rel="external">原文链接</a><br>阅读：602 评论：1 <a href="http://blog.csdn.net/xxd851116/article/details/17605195#comments" target="_blank" rel="external">查看评论</a></p>
+<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2013年12月27日<br>本文地址：<a href="http://xingxiudong.com/2013/12/27/looking-back-to-2013/" target="_blank" rel="external">http://xingxiudong.com/2013/12/27/looking-back-to-2013/</a></p>
 </blockquote>
 
       
@@ -338,7 +427,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -347,7 +436,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/">yum</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yum/">yum</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -356,7 +445,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/database/" style="font-size: NaNpx;">database</a><a href="/tags/mysql/" style="font-size: NaNpx;">mysql</a><a href="/tags/yum/" style="font-size: NaNpx;">yum</a>
+      <a href="/tags/database/" style="font-size: NaNpx;">database</a><a href="/tags/mysql/" style="font-size: NaNpx;">mysql</a><a href="/tags/oracle/" style="font-size: NaNpx;">oracle</a><a href="/tags/yum/" style="font-size: NaNpx;">yum</a>
     </div>
   </div>
 
@@ -365,7 +454,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -382,6 +471,10 @@
         
           <li>
             <a href="/2014/04/04/centos6.5-yum-install-mysql/">Centos6.5使用yum安装mysql——快速上手必备</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
           </li>
         
           <li>
