@@ -4,7 +4,7 @@
   <subtitle><![CDATA[点滴记忆，培养兴趣，积累经验，成长自我，分享快乐]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-09-23T15:01:28.592Z</updated>
+  <updated>2014-09-23T16:27:35.992Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -15,25 +15,28 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[新的开始]]></title>
+    <title><![CDATA[重新开始]]></title>
     <link href="http://xingxiudong.com/2014/09/19/dream-starts/"/>
     <id>http://xingxiudong.com/2014/09/19/dream-starts/</id>
     <published>2014-09-19T01:41:32.000Z</published>
-    <updated>2014-09-23T08:27:27.000Z</updated>
+    <updated>2014-09-23T16:11:45.000Z</updated>
     <content type="html"><![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
 <p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
 <p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
+<a id="more"></a>
+
 <p>关于hexo的中文文档更是到处都是，不作相关说明。看到了hexo+github的方案后马上就有了答案。对hexo爱不释手！</p>
 <p>hexo上手特别快，简单、简洁，在使用的过程中更发现问题，且排查容易。hexo是nodejs开发的，后期可借这个力把nodejs摸摸。</p>
 <p>以前的csdn博客转移过来可能还需要一些时间，没有再网上找到html转markdown的好的解决方案。打算后期有时间再一点一点的转。</p>
 <p>域名考虑了很久，还是用我的名字吧。</p>
 <p>总之，哥今天正式搬家啦。</p>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2014年9月19日<br>本文地址：<a href="http://xingxiudong.com/2014/09/19/dream-starts" target="_blank" rel="external">http://xingxiudong.com/2014/09/19/dream-starts</a></p>
-</blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd8]]>
+    <![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
+<p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
+<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
+]]>
+    
     </summary>
     
       <category term="感悟" scheme="http://xingxiudong.com/categories/%E6%84%9F%E6%82%9F/"/>
@@ -45,8 +48,9 @@
     <link href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/"/>
     <id>http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/</id>
     <published>2014-04-04T09:04:08.000Z</published>
-    <updated>2014-09-23T08:22:42.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+    <updated>2014-09-23T16:08:06.000Z</updated>
+    <content type="html"><![CDATA[<p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br><a id="more"></a></p>
+<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
 
 <p>安装结果：</p>
@@ -106,13 +110,10 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span>  </div><div class="line"><span class="operator"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span></div></pre></td></tr></table></figure>
 
 <p>（完）</p>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2014年4月28日<br>本文地址：<a href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql" target="_blank" rel="external">http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql</a></p>
-</blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre]]>
+    <![CDATA[<p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br>]]>
+    
     </summary>
     
       <category term="database" scheme="http://xingxiudong.com/tags/database/"/>
@@ -130,8 +131,8 @@
     <link href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/"/>
     <id>http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/</id>
     <published>2013-12-28T04:35:00.000Z</published>
-    <updated>2014-09-23T08:22:57.000Z</updated>
-    <content type="html"><![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。</p>
+    <updated>2014-09-23T16:10:43.000Z</updated>
+    <content type="html"><![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br><a id="more"></a></p>
 <h1 id="一、规划">一、规划</h1>
 <p>表空间名称：yourname<br>表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）<br>用户名/密码：yourname/yourname<br>说明：表空间名称、用户名、密码开发时因便于记忆一般一致，默认为项目的名称，也可以不同。</p>
 <p><strong><strong><strong><em>**</em></strong></strong></strong> 替换下面的 yourname <strong><strong><strong><em>**</em></strong></strong></strong></p>
@@ -166,14 +167,10 @@
 <li>生成SQL代码<br><img src="/images/20131218-sqltemplete-gen.png" alt="生成SQL代码"></li>
 </ol>
 <p>（完）</p>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2013年12月28日<br>本文地址：<a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant" target="_blank" rel="external">http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant</a></p>
-</blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。</p>
-<h1 id="一、规划">一、规划</h1>
-<p>表空间名称：yourname<br>表空间]]>
+    <![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br>]]>
+    
     </summary>
     
       <category term="oracle" scheme="http://xingxiudong.com/tags/oracle/"/>
@@ -187,13 +184,13 @@
     <link href="http://xingxiudong.com/2013/12/27/looking-back-to-2013/"/>
     <id>http://xingxiudong.com/2013/12/27/looking-back-to-2013/</id>
     <published>2013-12-27T02:25:21.000Z</published>
-    <updated>2014-09-23T08:23:53.000Z</updated>
+    <updated>2014-09-23T16:11:14.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>用一种平和的心态面对生活</li>
 <li>不能把钱看得太重</li>
 <li>最幸福的不仅仅是挣钱，和家人在一起能抚慰我的心灵</li>
 <li>和朋友相处要坦诚，为人和&#34108;</li>
-<li>有空多喝别人沟通，能获得更多的信息</li>
+<li>有空多喝别人沟通，能获得更多的信息<a id="more"></a></li>
 <li>把你认识的人都想成是好人，因为他们真是好人，人以类聚</li>
 <li>不要和别人比，幸福源自你对生活的热爱，而不是对money的追随</li>
 <li>团队很重要，塑造一个高效的团队还需要多学学管理</li>
@@ -230,9 +227,6 @@
 <li>技术很重要，是自信的筹码</li>
 <li>你还很年轻，还有时间做你喜欢做的事</li>
 </ol>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2013年12月27日<br>本文地址：<a href="http://xingxiudong.com/2013/12/27/looking-back-to-2013/" target="_blank" rel="external">http://xingxiudong.com/2013/12/27/looking-back-to-2013/</a></p>
-</blockquote>
 ]]></content>
     <summary type="html">
     <![CDATA[<ol>
@@ -240,8 +234,8 @@
 <li>不能把钱看得太重</li>
 <li>最幸福的不仅仅是挣钱，和家人在一起能抚慰我的心灵</li>
 <li>和朋友相处要坦诚，为人和&#34108;</li>
-<li>有空多喝别人沟通，能获得更多的信息</li>
-<li>]]>
+<li>有空多喝别人沟通，能获得更多的信息]]>
+    
     </summary>
     
       <category term="感悟" scheme="http://xingxiudong.com/categories/%E6%84%9F%E6%82%9F/"/>

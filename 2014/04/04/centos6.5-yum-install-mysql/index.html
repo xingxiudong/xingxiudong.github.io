@@ -5,30 +5,15 @@
   
   <title>Centos6.5使用yum安装mysql——快速上手必备 | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第1步、yum安装mysql
-1yum -y install mysql-server
-
-安装结果：
-Installed:mysql-server.x86_64 0:5.1.73-3.el6_5  
-Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-3.el6perl-DBI.x86_64">
+  <meta name="description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos6.5使用yum安装mysql——快速上手必备">
 <meta property="og:url" content="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/">
 <meta property="og:site_name" content="邢秀东的网络日志">
-<meta property="og:description" content="第1步、yum安装mysql
-1yum -y install mysql-server
-
-安装结果：
-Installed:mysql-server.x86_64 0:5.1.73-3.el6_5  
-Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-3.el6perl-DBI.x86_64">
+<meta property="og:description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos6.5使用yum安装mysql——快速上手必备">
-<meta name="twitter:description" content="第1步、yum安装mysql
-1yum -y install mysql-server
-
-安装结果：
-Installed:mysql-server.x86_64 0:5.1.73-3.el6_5  
-Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-3.el6perl-DBI.x86_64">
+<meta name="twitter:description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 
   
     <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
@@ -112,7 +97,8 @@ Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+        <p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br><a id="more"></a></p>
+<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
 
 <p>安装结果：</p>
@@ -172,10 +158,12 @@ Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span>  </div><div class="line"><span class="operator"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span></div></pre></td></tr></table></figure>
 
 <p>（完）</p>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2014年4月28日<br>本文地址：<a href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql" target="_blank" rel="external">http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql</a></p>
-</blockquote>
 
+		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
+			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
+			发表日期：2014年4月4日<br>
+			原文地址：<a href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/" title="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/">http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/</a>
+		</p>
       
     </div>
     <footer class="article-footer">
@@ -200,7 +188,7 @@ Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          新的开始
+          重新开始
         
       </div>
     </a>
@@ -267,7 +255,7 @@ Dependency Installed:mysql.x86_64 0:5.1.73-3.el6_5perl-DBD-MySQL.x86_64 0:4.013-
       <ul>
         
           <li>
-            <a href="/2014/09/19/dream-starts/">新的开始</a>
+            <a href="/2014/09/19/dream-starts/">重新开始</a>
           </li>
         
           <li>

@@ -5,23 +5,17 @@
   
   <title>Oracle工作起步：创建表空间、用户及给用户授权SQL和模板 | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。
-一、规划
-表空间名称：yourname表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）用户名/密码：yourname/">
+  <meta name="description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle工作起步：创建表空间、用户及给用户授权SQL和模板">
 <meta property="og:url" content="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/">
 <meta property="og:site_name" content="邢秀东的网络日志">
-<meta property="og:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。
-一、规划
-表空间名称：yourname表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）用户名/密码：yourname/">
+<meta property="og:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
 <meta property="og:image" content="/images/20131218-sqltemplete-init.png">
 <meta property="og:image" content="/images/20131218-sqltemplete-gen.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle工作起步：创建表空间、用户及给用户授权SQL和模板">
-<meta name="twitter:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。
-一、规划
-表空间名称：yourname表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）用户名/密码：yourname/">
+<meta name="twitter:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
 
   
     <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
@@ -105,7 +99,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。</p>
+        <p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br><a id="more"></a></p>
 <h1 id="一、规划">一、规划</h1>
 <p>表空间名称：yourname<br>表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）<br>用户名/密码：yourname/yourname<br>说明：表空间名称、用户名、密码开发时因便于记忆一般一致，默认为项目的名称，也可以不同。</p>
 <p><strong><strong><strong><em>**</em></strong></strong></strong> 替换下面的 yourname <strong><strong><strong><em>**</em></strong></strong></strong></p>
@@ -140,10 +134,12 @@
 <li>生成SQL代码<br><img src="/images/20131218-sqltemplete-gen.png" alt="生成SQL代码"></li>
 </ol>
 <p>（完）</p>
-<blockquote>
-<p>版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>发表日期：2013年12月28日<br>本文地址：<a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant" target="_blank" rel="external">http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant</a></p>
-</blockquote>
 
+		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
+			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
+			发表日期：2013年12月28日<br>
+			原文地址：<a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/" title="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/">http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/</a>
+		</p>
       
     </div>
     <footer class="article-footer">
@@ -235,7 +231,7 @@
       <ul>
         
           <li>
-            <a href="/2014/09/19/dream-starts/">新的开始</a>
+            <a href="/2014/09/19/dream-starts/">重新开始</a>
           </li>
         
           <li>
