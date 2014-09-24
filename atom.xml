@@ -4,7 +4,7 @@
   <subtitle><![CDATA[点滴记忆，培养兴趣，积累经验，成长自我，分享快乐]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-09-24T09:37:08.068Z</updated>
+  <updated>2014-09-24T09:38:29.489Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[重新开始]]></title>
-    <link href="http://xingxiudong.com/2014/09/19/-dream-starts/"/>
-    <id>http://xingxiudong.com/2014/09/19/-dream-starts/</id>
+    <link href="http://xingxiudong.com/2014/09/19/dream-starts/"/>
+    <id>http://xingxiudong.com/2014/09/19/dream-starts/</id>
     <published>2014-09-19T01:41:32.000Z</published>
     <updated>2014-09-23T16:11:45.000Z</updated>
     <content type="html"><![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
@@ -45,8 +45,8 @@
   
   <entry>
     <title><![CDATA[Centos6.5使用yum安装mysql——快速上手必备]]></title>
-    <link href="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql/"/>
-    <id>http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql/</id>
+    <link href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/"/>
+    <id>http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/</id>
     <published>2014-04-04T09:04:08.000Z</published>
     <updated>2014-09-23T16:08:06.000Z</updated>
     <content type="html"><![CDATA[<p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br><a id="more"></a></p>
@@ -128,8 +128,8 @@
   
   <entry>
     <title><![CDATA[Oracle工作起步：创建表空间、用户及给用户授权SQL和模板]]></title>
-    <link href="http://xingxiudong.com/2013/12/28/-oracle-create-tablespace-and-grant/"/>
-    <id>http://xingxiudong.com/2013/12/28/-oracle-create-tablespace-and-grant/</id>
+    <link href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/"/>
+    <id>http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/</id>
     <published>2013-12-28T04:35:00.000Z</published>
     <updated>2014-09-23T16:10:43.000Z</updated>
     <content type="html"><![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br><a id="more"></a></p>
@@ -181,8 +181,8 @@
   
   <entry>
     <title><![CDATA[[原]回首2013——2013年我学到的]]></title>
-    <link href="http://xingxiudong.com/2013/12/27/-looking-back-to-2013/"/>
-    <id>http://xingxiudong.com/2013/12/27/-looking-back-to-2013/</id>
+    <link href="http://xingxiudong.com/2013/12/27/looking-back-to-2013/"/>
+    <id>http://xingxiudong.com/2013/12/27/looking-back-to-2013/</id>
     <published>2013-12-27T02:25:21.000Z</published>
     <updated>2014-09-23T16:11:14.000Z</updated>
     <content type="html"><![CDATA[<ol>
