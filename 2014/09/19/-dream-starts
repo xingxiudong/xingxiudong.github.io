@@ -10,7 +10,7 @@
 经过仔细斟酌后，wordpress、octopress、opoopress都没有考虑使用，最后还是使用了hexo。他们之间的比较百度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重新开始">
-<meta property="og:url" content="http://xingxiudong.com/2014/09/19/dream-starts/">
+<meta property="og:url" content="http://xingxiudong.com/2014/09/19/-dream-starts">
 <meta property="og:site_name" content="邢秀东的网络日志">
 <meta property="og:description" content="前几日在网上无意中看到了hexo，感觉自己非常喜欢，于是就有了将CSDN的博客迁移到hexo的行动。
 记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。
@@ -79,9 +79,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-dream-starts" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post--dream-starts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/19/dream-starts/" class="article-date">
+    <a href="/2014/09/19/-dream-starts" class="article-date">
   <time datetime="2014-09-19T01:41:32.000Z" itemprop="datePublished">9月 19 2014</time>
 </a>
     
@@ -119,17 +119,17 @@
 		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
 			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
 			发表日期：2014年9月19日<br>
-			原文地址：<a href="http://xingxiudong.com/2014/09/19/dream-starts/" title="http://xingxiudong.com/2014/09/19/dream-starts/">http://xingxiudong.com/2014/09/19/dream-starts/</a>
+			原文地址：<a href="http://xingxiudong.com/2014/09/19/-dream-starts" title="http://xingxiudong.com/2014/09/19/-dream-starts">http://xingxiudong.com/2014/09/19/-dream-starts</a>
 		</p>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2014/09/19/dream-starts/" data-id="z4h7vurkvwcaf5lf" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2014/09/19/-dream-starts" data-id="2m5no07lee2ybtlg" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://xingxiudong.com/2014/09/19/dream-starts/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://xingxiudong.com/2014/09/19/-dream-starts#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -140,7 +140,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2014/04/04/centos6.5-yum-install-mysql/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/04/04/-centos6.5-yum-install-mysql" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Centos6.5使用yum安装mysql——快速上手必备</div>
     </a>
@@ -152,7 +152,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2014/09/19/dream-starts/" data-title="重新开始" data-url="http://xingxiudong.com/2014/09/19/dream-starts/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2014/09/19/-dream-starts" data-title="重新开始" data-url="http://xingxiudong.com/2014/09/19/-dream-starts"></div>
   </section>
 </section>
         
@@ -201,19 +201,19 @@
       <ul>
         
           <li>
-            <a href="/2014/09/19/dream-starts/">重新开始</a>
+            <a href="/2014/09/19/-dream-starts">重新开始</a>
           </li>
         
           <li>
-            <a href="/2014/04/04/centos6.5-yum-install-mysql/">Centos6.5使用yum安装mysql——快速上手必备</a>
+            <a href="/2014/04/04/-centos6.5-yum-install-mysql">Centos6.5使用yum安装mysql——快速上手必备</a>
           </li>
         
           <li>
-            <a href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
+            <a href="/2013/12/28/-oracle-create-tablespace-and-grant">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
           </li>
         
           <li>
-            <a href="/2013/12/27/looking-back-to-2013/">[原]回首2013——2013年我学到的</a>
+            <a href="/2013/12/27/-looking-back-to-2013">[原]回首2013——2013年我学到的</a>
           </li>
         
       </ul>

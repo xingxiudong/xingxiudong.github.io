@@ -3,19 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oracle工作起步：创建表空间、用户及给用户授权SQL和模板 | 邢秀东的网络日志</title>
+  <title>Centos6.5使用yum安装mysql——快速上手必备 | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
+  <meta name="description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oracle工作起步：创建表空间、用户及给用户授权SQL和模板">
-<meta property="og:url" content="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/">
+<meta property="og:title" content="Centos6.5使用yum安装mysql——快速上手必备">
+<meta property="og:url" content="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql">
 <meta property="og:site_name" content="邢秀东的网络日志">
-<meta property="og:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
-<meta property="og:image" content="/images/20131218-sqltemplete-init.png">
-<meta property="og:image" content="/images/20131218-sqltemplete-gen.png">
+<meta property="og:description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oracle工作起步：创建表空间、用户及给用户授权SQL和模板">
-<meta name="twitter:description" content="在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。">
+<meta name="twitter:title" content="Centos6.5使用yum安装mysql——快速上手必备">
+<meta name="twitter:description" content="如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。">
 
   
     <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
@@ -75,14 +73,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-oracle-create-tablespace-and-grant" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post--centos6.5-yum-install-mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/12/28/oracle-create-tablespace-and-grant/" class="article-date">
-  <time datetime="2013-12-28T04:35:00.000Z" itemprop="datePublished">12月 28 2013</time>
+    <a href="/2014/04/04/-centos6.5-yum-install-mysql" class="article-date">
+  <time datetime="2014-04-04T09:04:08.000Z" itemprop="datePublished">4月 4 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Oracle/">Oracle</a>
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
   </div>
 
   </div>
@@ -93,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Oracle工作起步：创建表空间、用户及给用户授权SQL和模板
+      Centos6.5使用yum安装mysql——快速上手必备
     </h1>
   
 
@@ -101,60 +99,86 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br><a id="more"></a></p>
-<h1 id="一、规划">一、规划</h1>
-<p>表空间名称：yourname<br>表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）<br>用户名/密码：yourname/yourname<br>说明：表空间名称、用户名、密码开发时因便于记忆一般一致，默认为项目的名称，也可以不同。</p>
-<p><strong><strong><strong><em>**</em></strong></strong></strong> 替换下面的 yourname <strong><strong><strong><em>**</em></strong></strong></strong></p>
-<h1 id="二、创建临时表空间">二、创建临时表空间</h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> <span class="string">"temp_yourname"</span></span></div><div class="line">    TEMPFILE <span class="string">'/u01/app/oracle/oradata/orcl/temp_yourname.dbf'</span></div><div class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M</div><div class="line">AUTOEXTEND <span class="keyword">ON</span></div><div class="line"><span class="keyword">NEXT</span> <span class="number">32</span>M MAXSIZE <span class="number">2048</span>M</div><div class="line">EXTENT MANAGEMENT <span class="keyword">LOCAL</span>;</div></pre></td></tr></table></figure>
+        <p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br><a id="more"></a></p>
+<h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
 
-<p>注:</p>
-<ol>
-<li>一般数据库实例安装完成后默认有临时表空间“TEMP”，如果小型数据库用此临时表空间即可。</li>
-<li>临时表空间主要用来做查询和存放一些缓冲区数据，消耗的主要原因是需要对查询的中间结果进行排序。主要作用：索引create/rebuild/Order by/group by/Distinct/Union/intersect/minus/Sort-merge/joins等。</li>
-<li>TEMPFILE是单引号，否则会报“ORA-00972: identifier is too long”。</li>
-<li>TABLESPACE的双引号中的名称一定要全大写字符，否则在创建用户时会报“ORA-00959: tablespace ‘temp_yourname’ does not exist”。</li>
-</ol>
-<h1 id="三、创建用户表空间">三、创建用户表空间</h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLESPACE</span> <span class="string">"yourname"</span></span></div><div class="line">    LOGGING</div><div class="line">    DATAFILE <span class="string">'/u01/app/oracle/oradata/orcl/yourname.dbf'</span></div><div class="line">    <span class="keyword">SIZE</span> <span class="number">20</span>M</div><div class="line">AUTOEXTEND <span class="keyword">ON</span></div><div class="line"><span class="keyword">NEXT</span> <span class="number">32</span>M MAXSIZE UNLIMITED</div><div class="line">EXTENT MANAGEMENT <span class="keyword">LOCAL</span>;</div></pre></td></tr></table></figure>
+<p>安装结果：</p>
+<p>Installed:<br>mysql-server.x86_64 0:5.1.73-3.el6_5  </p>
+<p>Dependency Installed:<br>mysql.x86_64 0:5.1.73-3.el6_5<br>perl-DBD-MySQL.x86_64 0:4.013-3.el6<br>perl-DBI.x86_64 0:1.609-4.el6  </p>
+<h1 id="第2步、设置开机启动">第2步、设置开机启动</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chkconfig mysqld on</div></pre></td></tr></table></figure>
 
-<p>注:</p>
-<ol>
-<li>DATAFILE是单引号，否则会报“ORA-00972: identifier is too long”。</li>
-<li>TABLESPACE的双引号中的名称一定要全大写字符，否则在创建用户时会报“ORA-00959: tablespace ‘yourname’ does not exist”。</li>
-</ol>
-<h1 id="四、创建用户（并指定默认表空间）">四、创建用户（并指定默认表空间）</h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">USER</span> yourname <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> yourname</span></div><div class="line"><span class="keyword">DEFAULT</span> <span class="keyword">TABLESPACE</span> yourname</div><div class="line"><span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> temp_yourname;</div></pre></td></tr></table></figure>
+<h1 id="第3步、启动MySql服务">第3步、启动MySql服务</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysqld start</div></pre></td></tr></table></figure>
 
-<h1 id="五、给用户授权">五、给用户授权</h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">connect</span>, resource, dba <span class="keyword">TO</span> yourname;</span></div></pre></td></tr></table></figure>
+<h1 id="第4步、设置MySQL的root用户设置密码">第4步、设置MySQL的root用户设置密码</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root</div></pre></td></tr></table></figure>
 
-<h1 id="六、高级用法：创建、使用PL/SQL模板">六、高级用法：创建、使用PL/SQL模板</h1>
-<ol>
-<li>新建：工具 -&gt; 模板列表 ，右击 -&gt; “新模板”…粘贴模板文件源码。</li>
-<li>使用：新建SQL窗口 -&gt; 双击模板 -&gt; 输入参数，修改默认值如下图：<br><img src="/images/20131218-sqltemplete-init.png" alt="编辑模板参数"></li>
-<li>生成SQL代码<br><img src="/images/20131218-sqltemplete-gen.png" alt="生成SQL代码"></li>
-</ol>
+<p>Welcome to the MySQL monitor. &nbsp;Commands end with ; or \g.<br>…… 省略了一些行<br>mysql&gt; select user,host,password from mysql.user;</p>
+<p>查询用户的密码，都为空，用下面的命令设置root的密码为root<br>mysql&gt; set password for root@localhost=password(‘root’);<br>mysql&gt; exit</p>
+<h1 id="第5步、用新密码登陆">第5步、用新密码登陆</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mysql</span> -u root -p</div></pre></td></tr></table></figure>
+
+<h1 id="第6步、基本命令">第6步、基本命令</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show databases;</td>
+<td>查看系统已存在的数据库</td>
+</tr>
+<tr>
+<td>use databasesname;</td>
+<td>选择需要使用的数据库</td>
+</tr>
+<tr>
+<td>drop database databasename;</td>
+<td>删除选定的数据库</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>退出数据库的连接</td>
+</tr>
+<tr>
+<td>create database test01;</td>
+<td>建立名为test的数据库</td>
+</tr>
+<tr>
+<td>show tables;</td>
+<td>列出当前数据库下的表</td>
+</tr>
+</tbody>
+</table>
+<p>其他基本的增删改查使用标准SQL即可</p>
+<h1 id="第7步、开放远程登录权限">第7步、开放远程登录权限</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'root'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span>  </div><div class="line"><span class="operator"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span></div></pre></td></tr></table></figure>
+
 <p>（完）</p>
 
 		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
 			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
-			发表日期：2013年12月28日<br>
-			原文地址：<a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/" title="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/">http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/</a>
+			发表日期：2014年4月4日<br>
+			原文地址：<a href="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql" title="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql">http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql</a>
 		</p>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/" data-id="xunss3a84534blpl" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql" data-id="rvc0ltf4xx684jfo" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yum/">yum</a></li></ul>
 
     </footer>
   </div>
@@ -162,19 +186,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/04/04/centos6.5-yum-install-mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/09/19/-dream-starts" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Centos6.5使用yum安装mysql——快速上手必备
+          重新开始
         
       </div>
     </a>
   
   
-    <a href="/2013/12/27/looking-back-to-2013/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/12/28/-oracle-create-tablespace-and-grant" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">[原]回首2013——2013年我学到的</div>
+      <div class="article-nav-title">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</div>
     </a>
   
 </nav>
@@ -184,7 +208,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2013/12/28/oracle-create-tablespace-and-grant/" data-title="Oracle工作起步：创建表空间、用户及给用户授权SQL和模板" data-url="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2014/04/04/-centos6.5-yum-install-mysql" data-title="Centos6.5使用yum安装mysql——快速上手必备" data-url="http://xingxiudong.com/2014/04/04/-centos6.5-yum-install-mysql"></div>
   </section>
 </section>
         
@@ -233,19 +257,19 @@
       <ul>
         
           <li>
-            <a href="/2014/09/19/dream-starts/">重新开始</a>
+            <a href="/2014/09/19/-dream-starts">重新开始</a>
           </li>
         
           <li>
-            <a href="/2014/04/04/centos6.5-yum-install-mysql/">Centos6.5使用yum安装mysql——快速上手必备</a>
+            <a href="/2014/04/04/-centos6.5-yum-install-mysql">Centos6.5使用yum安装mysql——快速上手必备</a>
           </li>
         
           <li>
-            <a href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
+            <a href="/2013/12/28/-oracle-create-tablespace-and-grant">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
           </li>
         
           <li>
-            <a href="/2013/12/27/looking-back-to-2013/">[原]回首2013——2013年我学到的</a>
+            <a href="/2013/12/27/-looking-back-to-2013">[原]回首2013——2013年我学到的</a>
           </li>
         
       </ul>
