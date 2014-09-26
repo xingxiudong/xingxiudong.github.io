@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>《JavaScript 语言精粹》 读书笔记 —— 第八章 方法 | 邢秀东的网络日志</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="8.1、Arrayarray.concat(item…)，返回一个新数组（浅拷贝），是由把指定的所有参数添加到array中构成的。  
+
+注1：可有1个或多个参数，如果参数是数组，数组的每个元素会被分别添加。注2：它不修改array，返回的是一个新数组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript 语言精粹》 读书笔记 —— 第八章 方法">
+<meta property="og:url" content="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/">
+<meta property="og:site_name" content="邢秀东的网络日志">
+<meta property="og:description" content="8.1、Arrayarray.concat(item…)，返回一个新数组（浅拷贝），是由把指定的所有参数添加到array中构成的。  
+
+注1：可有1个或多个参数，如果参数是数组，数组的每个元素会被分别添加。注2：它不修改array，返回的是一个新数组。">
+<meta property="og:image" content="/images/javascript-the-good-parts-cover-s.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript 语言精粹》 读书笔记 —— 第八章 方法">
+<meta name="twitter:description" content="8.1、Arrayarray.concat(item…)，返回一个新数组（浅拷贝），是由把指定的所有参数添加到array中构成的。  
+
+注1：可有1个或多个参数，如果参数是数组，数组的每个元素会被分别添加。注2：它不修改array，返回的是一个新数组。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">邢秀东的网络日志</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">点滴记忆，培养兴趣，积累经验，成长自我，分享快乐</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="xingxiudong.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript-the-good-parts-reading-notes-ch8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/07/02/javascript-the-good-parts-reading-notes-ch8/" class="article-date">
+  <time datetime="2012-07-02T14:25:30.000Z" itemprop="datePublished">7月 2 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《JavaScript 语言精粹》 读书笔记 —— 第八章 方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>8.1、Array<br>array.concat(item…)，返回一个新数组（浅拷贝），是由把指定的所有参数添加到array中构成的。  </p>
+<blockquote>
+<p>注1：可有1个或多个参数，如果参数是数组，数组的每个元素会被分别添加。<br>注2：它不修改array，返回的是一个新数组。<br><a id="more"></a></p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a.concat(<span class="number">4</span>,[<span class="number">5</span>, [<span class="number">6</span>,<span class="number">7</span>]]);    <span class="comment">// Returns [1,2,3,4,5,[6,7]]  </span></div><div class="line">array.join(separator)，返回一个字符串，用 separator 分隔符把它们连接在一起。默认分隔符是半角逗号<span class="string">','</span>。</div><div class="line">array.pop()，返回 array 中最后一个元素，并移除它，数组长度减<span class="number">1</span>。</div></pre></td></tr></table></figure>
+
+<p>注：如果 array 是空的，则不改变 array，返回undefined。<br>例子：<br>方法pop()和它的伴随方法push()可以提供先进后出(FILO)栈的功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stack = [];    <span class="comment">// stack: []  </span></div><div class="line">stack.push(<span class="number">1</span>, <span class="number">2</span>);  <span class="comment">// stack: [1,2]    Return 2  </span></div><div class="line">stack.pop();       <span class="comment">// stack: [1]    Return 1  </span></div><div class="line">stack.push(<span class="number">4</span>, <span class="number">5</span>);  <span class="comment">// stack: [1,[4,5]]    Return 2  </span></div><div class="line">stack.pop();       <span class="comment">// stack: [1]    Return [4,5]  </span></div><div class="line">stack.pop();       <span class="comment">// stack: []    Return 1</span></div></pre></td></tr></table></figure>
+
+<p><strong>array.push(item…)</strong>，返回 push 后新数组的长度，它将一个或多个参数 item 附加到 array 的尾部。<br>注1：该方法不创建新的数组，而是直接修改原有的array。<br>注2：如果 item 是数组，会将参数数组作为单个元素添加之（此与concat不同）。<br><strong>array.reverse()</strong>，返回反转后的 array 数组。<br>注1：它在原数组上实现这一操作作为替代：重排指定的array的元素，但并不创建新数组。<br>注2：如果对array有多个引用，那么通过所有引用都可以看到数组元素的新顺序。<br><strong>array.shift()</strong>，返回 array 中第一个元素，并移除它，并且将余下的所有元素前移一位，以填补数组头部的空缺。<br>注1：如果 array 是空的，将不进行任何操作，返回undefined。<br>注2：shift 通常比 pop 慢很多。<br>注3：该方法不创建新的数组，而是直接修改原有的array。<br><strong>array.slice(start, end)</strong>，返回一个浅复制后的新数组（不包括array[end]元素）。它对 array 中的一段作浅复制，第一个被复制的元素是 array[start]，一直复制到 array[end]。<br>注1：start如果是负数，为从数组尾部开始算起的位置。也就是说-1指最后一个元素，-2指倒数第二个元素，以此类推。<br>注2：end如果没有指定，默认为 array.length，即切分的数组包含从start开始到数组结束的所有元素。如果这个参数是负数，它声明的是从数组尾部开始算起的元素。<br>注3：返回的新数组不包括array[end]。<br>注4：如果 start 大于 array.length，返回一个空数组。<br>注5：该方法并不修改数组。如果想删除数组中的一段元素，应该使用方法Array.splice()。<br>注6：在Internet Explorer 4中，参数start不能为负数。这在IE的最新版本中已经更正。<br>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];  </div><div class="line">a.slice(<span class="number">0</span>,<span class="number">3</span>);    <span class="comment">// Return [1,2,3]  </span></div><div class="line">a.slice(<span class="number">3</span>);    <span class="comment">// Return [4,5]  </span></div><div class="line">a.slice(<span class="number">1</span>,-<span class="number">1</span>);    <span class="comment">// Return [2,3,4]  </span></div><div class="line">a.slice(-<span class="number">3</span>,-<span class="number">2</span>);    <span class="comment">// Return [3]; buggy in IE 4: return [1,2,3]</span></div></pre></td></tr></table></figure>
+
+<p><strong>array.sort(compareFn)</strong>，对数组 array 的内容按比较函数进行排序，它不能正确地给一组数字进行排序。<br>注1：javascript默认的比较函数假定所有要被排序的元素都是字符串，所以比较的时候会将其先转化成字符串；<br>注2：比较函数接受两个参数，如果两个参数相等则返回0，如果第一个参数应该排列在前面，则返回一个负数，如果第二个参数应该排列在前面，则返回一个正数。<br>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n = [<span class="number">4</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">23</span>, <span class="number">42</span>];  </div><div class="line">n.sort(); <span class="comment">// n 是 [15, 16, 23, 4, 42, 8]  </span></div><div class="line">n.sort(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{  </div><div class="line"><span class="keyword">return</span> a - b;  </div><div class="line">});  </div><div class="line"><span class="comment">// n 是 [4, 8, 15, 16, 23, 42];</span></div></pre></td></tr></table></figure>
+
+<p><strong>array.splice(start, deleteCount, item…)</strong>，从数组 array 中删除1个或多个元素，并用心的item代替它们。返回一个包含移除元素的数组。<br>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];  </div><div class="line"><span class="keyword">var</span> r = a.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">'ache'</span>, <span class="string">'bug'</span>);  </div><div class="line"><span class="comment">// a 是 ['a', 'ache', 'bug', 'c'];  </span></div><div class="line"><span class="comment">// r 是 ['b'];</span></div></pre></td></tr></table></figure>
+
+<p><strong>array.unshift(item…)</strong>，像 push 方法一样用于将元素添加到数组中，但它是把 item 插入到 array 的开始部分而不是尾部。它返回 array 的新的长度值。<br>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; <span class="comment">// a 是 ['?', '@', 'a', 'b', 'c']  </span></div><div class="line"><span class="keyword">var</span> r = a.unshift(<span class="string">'?'</span>, <span class="string">'@'</span>); <span class="comment">// r 是5</span></div></pre></td></tr></table></figure>
+
+<p>8.2、Function<br><strong>function.apply(thisArg, argArray)</strong>，此方法调用函数 function，传递一个将被绑定到 this 上的对象和一个可选的参数数组。apply 方法被用在 apply 调用模式中。</p>
+<p>8.3、Number<br><strong>number.toExponential(fractionDigits)</strong>，把 number 转换成一个指数形式的字符串。 可选参数 fractionDigits 控制其小数点后的数字位数。它的值必须在 0 至 20 之间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toExponential(<span class="number">0</span>)); <span class="comment">// 3e+0  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toExponential(<span class="number">2</span>));  <span class="comment">// 3.14e+0  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toExponential(<span class="number">7</span>));  <span class="comment">// 3.1415927e+0  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toExponential(<span class="number">16</span>)); <span class="comment">// 3.1415926535897930e+0  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toExponential());  <span class="comment">// 3.141592653589793e+0</span></div></pre></td></tr></table></figure>
+
+<p><strong>number.toFiexd(fractionDigits)</strong>，把 number 转换成一个十进制数形式的字符串。可选参数 fractionDigits 控制其小数点后的数字位数。它的值必须在 0 至 20 之间。默认为0：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toFixed(<span class="number">0</span>)); <span class="comment">// 3  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toFixed(<span class="number">2</span>));  <span class="comment">// 3.14  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toFixed(<span class="number">7</span>));  <span class="comment">// 3.1415927  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toFixed(<span class="number">16</span>)); <span class="comment">// 3.1415926535897930  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toFixed());  <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+
+<p><strong>number.toPrecision(precision)</strong>，把 number 转换成一个十进制形式的字符串。可选参数 precision 控制有效数字的位数。它的值必须在 0 到 21 之间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toPrecision(<span class="number">2</span>));  <span class="comment">// 3.1   </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toPrecision(<span class="number">7</span>));  <span class="comment">// 3.141593   </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toPrecision(<span class="number">16</span>)); <span class="comment">// 3.141592653589793   </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toPrecision());  <span class="comment">// 3.141592653589793</span></div></pre></td></tr></table></figure>
+
+<p><strong>number.toString(radix)</strong>，将 number 转换成一个字符串。可选参数 radix 是控制基数。它的值必须在 2 和 36 之间。默认 radix 是以 10 为基数的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toString(<span class="number">2</span>));  <span class="comment">// 11.001001000011111101101010100010001000010110100011  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toString(<span class="number">8</span>));  <span class="comment">// 3.1103755242102643   </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toString(<span class="number">16</span>)); <span class="comment">// 3.243f6a8885a3  </span></div><div class="line"><span class="built_in">document</span>.writeln(<span class="built_in">Math</span>.PI.toPrecision());  <span class="comment">// 3.141592653589793</span></div></pre></td></tr></table></figure>
+
+<p>8.4、Object<br><strong>object.hasOwnProperty(name)</strong>，如果这个 object 包含了一个名为 name 的属性，返回 true。<br>注1：原型链中同名属性是不会被检查的。<br>注2：对 name 就是 hasOwnProperty 时不起作用， 此时会返回 false。</p>
+<p>8.5、RegExp<br><strong>regexp.exec(string)</strong>，exec 方法使用正则表达式的最强大（和最慢）的方法。如果它成功地匹配 regexp 和字符串 string，它会返回一个数组。数组中下标为 0 的元素将包含正则表达式 regexp 匹配的子字符串。下标为 1 的元素是分组 1 捕获的文本，下标为 2 的元素是分组 2 捕获的文本，以此类推。如果匹配失败，返回 null。<br><strong>regexp.test(string)</strong>，test 方法使用正则表达式的最简单（和最快）的方法。如果它成功地匹配 regexp 和字符串 string，它返回 true。不要对这个方法使用 g 标识。</p>
+<p>8.6、String<br><strong>string.charAt(pos)</strong>，返回在 string 中 pos 位置处的字符。pos 小于 0 或大于等于字符串的长度，返回空字符串。<br><strong>string.charCodeAt(pos)</strong>，返回在 string 中 pos 位置处的字符码位。pos 小于 0 或大于等于字符串的长度，返回NaN。<br><strong>string.indexOf(searchString, position)</strong>，在 string 中查找另一个字符串 searchString。如果它被找到，则返回第一个被匹配字符的位置，否则返回-1。position 表示查找的起始位置。<br><strong>string.lastIndexOf(searchString, position)</strong>，与 indexOf 方法类型，但它是从该字符串的末尾开始查找。<br><strong>string.localeCompare(that)</strong>，比较两个字符串。如果 string 比 that 小，结果为负数。如果他们相等，结果为0。<br><strong>string.match(regexp)</strong>，它匹配一个字符串和一个正则表达式。它依据 g 标识来决定如何进行匹配。如果没有 g 表示，那么调用 string.match(regexp) 的结果与调用 regexp.exec(string)的结果相同。然而，如果 regexp 带有一个 g 标识，那么它返回一个包含除捕获分组之外的所有匹配的数组。<br><strong>string.replace(searchValue, replaceValue)</strong>，对 string 进行查找和替换操作，并返回一个新的字符串。<br>注1：searchValue 可以是一个字符串或一个正在表达式。<br>注2：如果 searchValue 是一个正则表达式并且带有 g 标志，那么它将替换所有匹配之处。如果没有，仅替换第一个匹配之处。<br>注3：replaceValue 可以是一个字符串或一个函数。如果 replaceValue 是一个字符串，字符 $ 拥有特别的含义：  </p>
+<ol>
+<li>$$:　　　　　$</li>
+<li>$&amp;:　　　　　整个匹配的文本</li>
+<li>$number:　　分组捕获的文本 </li>
+<li>$`：　　　  　匹配之前的文本</li>
+<li>$’：　　　　  匹配之后的文本   </li>
+</ol>
+<p>如果 replaceValue 是一个函数，此方法将对每个匹配依次调用它，并且该函数返回的字符串将被用作替换的文本。传递给这个函数的第一个参数是整个被匹配的文本。第二个参数是分组 1 捕获的文本，下一个参数是分组 2 捕获的文本，以此类推。<br><strong>string.slice(start, end)</strong>，slice 方法复制 string 的一部分来构造一个新的字符串。<br>注1：如果 start 参数是负数，它将与 string.length 相加。<br>注2：end参数是可选的，它的默认值是 string.length。<br>注3：如果 end 参数是负数，它将与 string.length 相加。<br><strong>string.split(separator, limit)</strong>，split 方法把这个 string 分隔成片段来创建一个字符串数组。<br>注1：limit 可以限制被分割的片段数量。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> digits = <span class="string">'0123456789'</span>;  </div><div class="line"><span class="keyword">var</span> a = digits.split(<span class="string">''</span>, <span class="number">5</span>);  </div><div class="line"><span class="comment">// a 是 ['0', '1', '2', '3', '456789']</span></div></pre></td></tr></table></figure>
+
+<p>注2：separator 参数可以是一个字符串或一个正则表达式。<br><strong>string.substring(start, end)</strong>，和 slice 方法一样，只是它不能处理负数参数。没有任何理由使用 substring 方法，建议用 slice 替代。<br><strong>string.toLocaleLowerCase()</strong>，返回一个使用本地化规则把 string 中的所有字母转换为小写格式。<br>注：这个方法主要用在土耳其语上，因为在土耳其语中’I’转换为’1’，而不是’i’。<br><strong>string.toLocaleUpperCase()</strong>，返回一个使用本地化规则把 string 中的所有字母转换为大写格式。也是主要用在土耳其语上。<br><strong>string.toLowerCase()</strong>，返回一个所有字母都变为小写的新字符串。<br><strong>string.toUpperCase()</strong>，返回一个所有字母都变为大写的新字符串。<br><strong>string.fromCharCode(char…)</strong>，从一串数字中返回一个字符串。  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="built_in">String</span>.fromCharCode(<span class="number">67</span>, <span class="number">97</span>, <span class="number">116</span>); <span class="comment">// a 是 'Cat'</span></div></pre></td></tr></table></figure>
+
+
+
+<h2 id="小结">小结</h2>
+<p>这一章中主要介绍了JavaScript中6大对象基本所拥有的基本方法，比较系统，也枯燥无味！</p>
+<p><img src="/images/javascript-the-good-parts-cover-s.jpg" alt="书籍封面"></p>
+
+		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
+			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
+			发表日期：2012年7月2日<br>
+			原文地址：<a href="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/" title="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/">http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/</a>
+		</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/" data-id="b9qgqatbtb5eimvz" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/06/19/javascript-the-good-parts-reading-notes-ch7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《JavaScript 语言精粹》 读书笔记 —— 第七章 正则表达式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2012/07/02/javascript-the-good-parts-reading-notes-ch8/" data-title="《JavaScript 语言精粹》 读书笔记 —— 第八章 方法" data-url="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/"></div>
+  </section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/database/" style="font-size: 10.00px;">database</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/mysql/" style="font-size: 10.00px;">mysql</a><a href="/tags/oracle/" style="font-size: 10.00px;">oracle</a><a href="/tags/yum/" style="font-size: 10.00px;">yum</a><a href="/tags/函数/" style="font-size: 10.00px;">函数</a><a href="/tags/对象/" style="font-size: 10.00px;">对象</a><a href="/tags/数组/" style="font-size: 15.00px;">数组</a><a href="/tags/继承/" style="font-size: 10.00px;">继承</a><a href="/tags/语法/" style="font-size: 15.00px;">语法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/09/19/dream-starts/">重新开始</a>
+          </li>
+        
+          <li>
+            <a href="/2014/04/04/centos6.5-yum-install-mysql/">Centos6.5使用yum安装mysql——快速上手必备</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/27/looking-back-to-2013/">[原]回首2013——2013年我学到的</a>
+          </li>
+        
+          <li>
+            <a href="/2012/07/03/javascript-the-good-parts-reading-notes-ch9/">《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://blog.csdn.net/xxd851116" target="_blank">作者前博客</a>
+          </li>
+        
+          <li>
+            <a href="http://www.ccvita.com/" target="_blank">平凡的世界</a>
+          </li>
+        
+          <li>
+            <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰的网络日志</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xing XiuDong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xingxiudong"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<!-- 百度统计 Start -->
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F54f0811619534f1ad75482a915f7fde0' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- 百度统计 End -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
