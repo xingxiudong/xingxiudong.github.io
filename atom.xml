@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[邢秀东的网络日志]]></title>
-  <subtitle><![CDATA[点滴记忆，培养兴趣，积累经验，成长自我，分享快乐]]></subtitle>
+  <subtitle><![CDATA[点滴记忆，培养兴趣，积累经验，成长自我，分享他人]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-09-27T09:26:22.634Z</updated>
+  <updated>2014-09-29T02:27:30.150Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
-    <name><![CDATA[Xing XiuDong]]></name>
+    <name><![CDATA[Xiudong Xing]]></name>
     <email><![CDATA[xingxiudong@gmail.com]]></email>
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[重新开始]]></title>
-    <link href="http://xingxiudong.com/2014/09/19/dream-starts/"/>
-    <id>http://xingxiudong.com/2014/09/19/dream-starts/</id>
+    <title><![CDATA[新的开始]]></title>
+    <link href="http://xingxiudong.com/2014/09/19/new-start/"/>
+    <id>http://xingxiudong.com/2014/09/19/new-start/</id>
     <published>2014-09-19T01:41:32.000Z</published>
-    <updated>2014-09-23T16:11:45.000Z</updated>
-    <content type="html"><![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
-<p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
-<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
+    <updated>2014-09-29T01:25:56.000Z</updated>
+    <content type="html"><![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，有一种别样的感觉和欣喜，于是，一直存在的想法将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到静态博客终于开始浮出水面了。</p>
+<p>记得08年就在CSDN开博客，后来慢慢开始觉得不太喜欢，CSDN广告、不灵活、无法自定义HTML、不支持markdown感到不满意，苦一直没有好的方式就没有动手。</p>
+<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>、<a href="http://blog.getpelican.com/" target="_blank" rel="external">pelican</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
 <a id="more"></a>
 
 <p>关于hexo的中文文档更是到处都是，不作相关说明。看到了hexo+github的方案后马上就有了答案。对hexo爱不释手！</p>
 <p>hexo上手特别快，简单、简洁，在使用的过程中更发现问题，且排查容易。hexo是nodejs开发的，后期可借这个力把nodejs摸摸。</p>
 <p>以前的csdn博客转移过来可能还需要一些时间，没有再网上找到html转markdown的好的解决方案。打算后期有时间再一点一点的转。</p>
-<p>域名考虑了很久，还是用我的名字吧。</p>
+<p>域名考虑了很久，还是用我的名字吧。想太多没用！</p>
+<p>给自己一个目标：坚决不作转载，提高原创品质！</p>
 <p>总之，哥今天正式搬家啦。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，感觉自己非常喜欢，于是就有了将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到hexo的行动。</p>
-<p>记得08年就在CSDN开博客，一直对其广告的植入和不灵活、无法添加其他的部件、不支持markdown感到不满意。很早就有换地方的想法。苦一直没有好的方式就没有动手。</p>
-<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
+    <![CDATA[<p>前几日在网上无意中看到了<a href="http://hexo.io/index.html" target="_blank" rel="external">hexo</a>，有一种别样的感觉和欣喜，于是，一直存在的想法将<a href="http://blog.csdn.net/xxd851116" target="_blank" rel="external">CSDN的博客</a>迁移到静态博客终于开始浮出水面了。</p>
+<p>记得08年就在CSDN开博客，后来慢慢开始觉得不太喜欢，CSDN广告、不灵活、无法自定义HTML、不支持markdown感到不满意，苦一直没有好的方式就没有动手。</p>
+<p>经过仔细斟酌后，<a href="http://wordpress.org/" target="_blank" rel="external">wordpress</a>、<a href="http://www.octopress.cn/" target="_blank" rel="external">octopress</a>、<a href="http://www.opoopress.com/zh/" target="_blank" rel="external">opoopress</a>、<a href="http://blog.getpelican.com/" target="_blank" rel="external">pelican</a>都没有考虑使用，最后还是使用了hexo。他们之间的比较百度谷歌一大堆。</p>
 ]]>
     
     </summary>
