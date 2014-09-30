@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-09-30T06:26:38.580Z</updated>
+  <updated>2014-09-30T06:49:00.742Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -370,7 +370,7 @@
     <link href="http://xingxiudong.com/2012/06/19/javascript-the-good-parts-reading-notes-ch7/"/>
     <id>http://xingxiudong.com/2012/06/19/javascript-the-good-parts-reading-notes-ch7/</id>
     <published>2012-06-18T16:32:30.000Z</published>
-    <updated>2014-09-26T05:32:16.000Z</updated>
+    <updated>2014-09-30T06:48:37.000Z</updated>
     <content type="html"><![CDATA[<p>7.1、在JavaScript中，正则表达式是对Perl版的改进和发展。</p>
 <p>7.2、^ 表示一个字符串的开始，$表示一个字符串的结束。</p>
 <p>7.3、(?: …) 表示一个非捕获型分组（noncapturing group）。</p>
@@ -383,7 +383,21 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> my_regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\"(?:\\.|[^\\\\\\\"])*\""</span>, <span class="string">'g'</span>);</div></pre></td></tr></table></figure>
 
 <p>7.7、在RegExp中，有三个标志：g、i和m。</p>
-<p>7.8、RegExp对象的属性<br>|  属性          |  用法  |<br>| ——           | —— |<br>|  global        |    如果标志 g 被使用，值为 true |<br>|  ignoreCase    |    如果标志 i 被使用，值为 true |<br>|  lastIndex    |    下一次 exec 匹配开始的索引。初始值为 0 |<br>|  multiline    |    如果 m 被使用，值为 true |<br>|  source        |    正则表达式源代码文本 |</p>
+<p>7.8、RegExp对象的属性<br><!--
+| 属性       | 用法 |
+| -----:     | :----  |
+| global     | 如果标志 g 被使用，值为 true |
+| ignoreCase | 如果标志 i 被使用，值为 true |
+| lastIndex  | 下一次 exec 匹配开始的索引。初始值为 0 |
+| multiline  | 如果 m 被使用，值为 true |
+| source     | 正则表达式源代码文本 | --></p>
+<ul>
+<li>global: 如果标志 g 被使用，值为 true</li>
+<li>ignoreCase: 如果标志 i 被使用，值为 true</li>
+<li>lastIndex: 下一次 exec 匹配开始的索引。初始值为 0</li>
+<li>multiline: 如果 m 被使用，值为 true</li>
+<li>source: 正则表达式源代码文本</li>
+</ul>
 <p>7.9、一个正则表达式因子可以是一个字符、一个由圆括号包围的组、一个字符类，或者是一个转义序列。除了控制字符和特殊字符以外，所有的字符都将被按照字面处理：<br>\ / [ ] ( ) { } ? + * | . ^ $<br>如果上面列出的字符按字面去【匹配，那么必须要一个 \ 前缀来进行转移。</p>
 <p>7.10、正则表达式转义：</p>
 <ul>
