@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-10-27T09:26:36.724Z</updated>
+  <updated>2014-11-19T06:07:57.502Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -13,6 +13,137 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Linux初配]]></title>
+    <link href="http://xingxiudong.com/2014/11/19/linux-start-config/"/>
+    <id>http://xingxiudong.com/2014/11/19/linux-start-config/</id>
+    <published>2014-11-19T06:01:21.000Z</published>
+    <updated>2014-11-19T06:07:20.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="引言">引言</h1>
+<p>Linux有很多分支，CentOS、Ubuntu…<br>本文以CentOS-6.4-x86_64环境介绍当我们拿到一个Linux系统，我们需要做的一些主要配置。<br><a id="more"></a></p>
+<h1 id="安装">安装</h1>
+<p>先要<a href="http://www.centos.org/" target="_blank" rel="external">http://www.centos.org/</a>下载系统安装包，一般下载ISO文件，下载后使用虚拟机（有VirtualBox和VMware）安装。<br><a href="http://mirrors.pubyun.com/centos/6.5/isos/x86_64/" target="_blank" rel="external">镜像地址</a>中一般有minimal、bin-DVD、LiveCD、LiveDVD和netinstall五个版本。了解他们的区别可以看下<a href="http://mirrors.pubyun.com/centos/6.5/isos/x86_64/0_README.txt" target="_blank" rel="external">README.txt</a>文件。我只有在安装需要桌面环境的组件（如VNC-Server、Oracle）时使用bin-DVD版，一般都使用minimal版本安装，即最小软件包安装，系统简洁干净，一般400M左右。</p>
+<p>写这篇文章安装使用的虚拟机环境是VMware® Workstation 10.0.0，其安装在Window8.1 企业版上。</p>
+<h1 id="网络配置">网络配置</h1>
+<p>首先要让系统能上网才是王道。<br>VMware中的网络连接模式为NAT模式时，主机和虚拟机之间可互联互通。<br>在NAT模式下，虚拟机可以通过宿主主机连接公网，当然如果宿主机可上网，虚拟机也就可以上网了，但这太虚拟机只能与主机通信。如果需要将虚拟机虚拟成主机所在局域网中的一台独立主机，拥有和主机平起平坐的地址，那需要Bridged模式，即桥接模式。</p>
+<p>我使用的是NAT模式，原因很简单：公司不允许在局域网中虚拟独立主机，局域网IP地址资源受限。</p>
+<p>NAT模式下虚拟机网卡使用dhcp即可，即自动获取IP。<br>网卡配置文件 <em>/etc/sysconfig/network-scripts/ifcfg-eth0</em> 中默认 <em>ONBOOT</em> 值为 <strong>no</strong>，需要修改为 <strong>yes</strong>，即启动时自动启动网卡（network服务）。</p>
+<pre><code>vi <span class="regexp">/etc/</span>sysconfig<span class="regexp">/network-scripts/i</span>fcfg-eth0
+</code></pre><p>打开首次安装的默认配置文件，一般如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DEVICE=eth0</div><div class="line">HWADDR=<span class="number">00</span>:<span class="number">0</span>C:<span class="number">29</span>:<span class="number">7</span>B:C2:E9</div><div class="line">TYPE=Ethernet</div><div class="line">UUID=ce6ea204<span class="operator">-f</span>9dc-<span class="number">4</span>adc-b370-<span class="number">37</span>a9619c042b</div><div class="line">ONBOOT=yes</div><div class="line">NM_CONTROLLED=yes</div><div class="line">BOOTPROTO=dhcp</div></pre></td></tr></table></figure>
+
+<p>如果是桥接模式，对 <em>ifcft-eth0</em> 作如下修改：</p>
+<ol>
+<li>修改BOOTPROTO=”static”；</li>
+<li>修改ONBOOT=”yes”；</li>
+<li>新增如下配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">IPADDR=<span class="number">192.168</span>.<span class="number">1.102</span></div><div class="line">NETMASK=<span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">GATEWAY=<span class="number">192.168</span>.<span class="number">1.1</span></div><div class="line">DNS1=<span class="number">202.102</span>.<span class="number">192.68</span></div><div class="line">DNS2=<span class="number">8.8</span>.<span class="number">8.8</span></div></pre></td></tr></table></figure>
+
+<p>不用解释具体的每项配置。DNS也可以在 <em>/etc/resolv.conf</em> 中配置。</p>
+<p>所有修改在启动网卡或重启网络服务后才会生效。</p>
+<ul>
+<li><p>启动/关闭网卡</p>
+<pre><code>  <span class="title">ifup</span> eth0
+  ifdown eth0
+</code></pre></li>
+<li><p>重启网络服务：</p>
+<pre><code>  <span class="class"><span class="keyword">service</span> <span class="title">network</span> restart</span>
+</code></pre></li>
+</ul>
+<p>执行 <code>ping www.baidu.com</code> 就可以检查您的配置是否正确了。</p>
+<h1 id="更新软件包">更新软件包</h1>
+<p>在能上网之后，把系统安装自带的所有软件包更新到最新。</p>
+<pre><code>yum <span class="keyword">update</span> -<span class="keyword">y</span>
+</code></pre><h1 id="修改主机名">修改主机名</h1>
+<p>在安装的过程中很多时候主机名随便设置了一个，安装后想要重新设置主机名。需要修改两个配置。</p>
+<ol>
+<li><p>修改 <em>/etc/sysconfig/network</em> 文件</p>
+<pre><code><span class="constant"> NETWORKING</span>=yes
+<span class="constant"> HOSTNAME</span>=&lt;new-host-name&gt;
+</code></pre><p> 将HOSTNAME修改为新主机名&lt;new-host-name&gt;。</p>
+</li>
+<li><p>修改 <em>/etc/hosts</em> 文件<br> 新增行： </p>
+<pre><code> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>        &lt;<span class="keyword">new</span>-host-name&gt;;
+</code></pre></li>
+</ol>
+<h1 id="安装常用软件">安装常用软件</h1>
+<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb -<span class="keyword">y</span> 
+</code></pre><blockquote>
+<p>wget使用时进度条的刷屏问题按如下方式解决：<br>   yum install gettext -y<br>    msgunfmt /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo -o - |sed ‘s/eta(英国中部时间)/ETA/‘|msgfmt - -o/tmp/zh_CN.mo<br>    cp /tmp/zh_CN.mo /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo</p>
+</blockquote>
+<h1 id="时区和时间">时区和时间</h1>
+<p>先检查一下自己所在时区</p>
+<pre><code><span class="tag">date</span> <span class="tag">-R</span>
+<span class="tag">Wed</span>, 19 <span class="tag">Nov</span> 2014 06<span class="pseudo">:17</span><span class="pseudo">:44</span> +0800
+</code></pre><p>如果不是所在时区需要调整，以中国大陆所在时区为例：</p>
+<pre><code>cp -f <span class="regexp">/usr/</span>share<span class="regexp">/zoneinfo/</span>Asia<span class="regexp">/Shanghai /</span>etc<span class="regexp">/localtime</span>
+</code></pre><p>时间同步很简单，使用 <em>ntpdate &lt;ntpd-server&gt;</em> 命令即可。&lt;ntpd-server&gt; 是时钟服务器地址/域名，网上通过Google查询有很多。我用的是 us.pool.ntp.org。</p>
+<pre><code><span class="tag">ntpdate</span> <span class="tag">us</span><span class="class">.pool</span><span class="class">.ntp</span><span class="class">.org</span>
+19 <span class="tag">Nov</span> 11<span class="pseudo">:00</span><span class="pseudo">:32</span> <span class="tag">ntpdate</span><span class="attr_selector">[1533]</span>: <span class="tag">step</span> <span class="tag">time</span> <span class="tag">server</span> 137<span class="class">.190</span><span class="class">.2</span><span class="class">.4</span> <span class="tag">offset</span> <span class="tag">-28788</span><span class="class">.508863</span> <span class="tag">sec</span>
+</code></pre><p>如果想定时自动作时间同步，将命令加入定时器命令列表即可。执行 <code>crontab -e</code> 新增下面一行，每隔10分钟作一次时间同步：</p>
+<pre><code>0-59/10 <span class="keyword">*</span> <span class="keyword">*</span> <span class="keyword">*</span> <span class="keyword">*</span> /usr/sbin/ntpdate us.pool.ntp.org <span class="string">| logger -t NTP</span>
+</code></pre><p><strong>:x</strong> 保存后重启crond服务：<code>service crond restart</code></p>
+<h1 id="修改开机预设等待时间">修改开机预设等待时间</h1>
+<!--![开机时的一个等待画面](/images/linux-start-config-grub.png)-->
+
+<pre><code><span class="keyword">vi</span> /boot/grub/<span class="keyword">menu</span>.lst
+</code></pre><p>修改 <em>timeout</em> 值，单位是秒。我喜欢设置为0。</p>
+<h1 id="用户和组">用户和组</h1>
+<h2 id="添加用户">添加用户</h2>
+<p>添加一个 “stonex” 的用户：</p>
+<pre><code>useradd –d <span class="regexp">/home/</span>stonex -s <span class="regexp">/bin/</span>bash -g stonex -m stonex
+</code></pre><p>-d 表示指定用户主目录，-m 表示如果该主目录不存在创建一个，-s 指定执行的shell， -g 表示指定用户所在组 stonex （不存在会自动生成一个）。<br>CentOS6也可以直接使用 <code>useradd stonex</code>， 默认会在 /home 目录下新建用户主目录 /home/stonex，并且也会自动生成一个用户组 stonex。</p>
+<p>在 /etc/group 文件中可看到新增的组 stonex：</p>
+<pre><code><span class="tag">stonex</span><span class="pseudo">:x</span><span class="pseudo">:500</span>:
+</code></pre><p>并且在 /etc/passwd 文件尾部会新增如下这一行：</p>
+<pre><code><span class="symbol">stonex:</span><span class="symbol">x:</span><span class="number">500</span><span class="symbol">:</span><span class="number">500</span><span class="symbol">:</span><span class="symbol">:/home/stonex</span><span class="symbol">:/bin/bash</span>
+</code></pre><p>这一行的意思是：用户名:密码:用户ID:组ID:描述:用户主目录:用户shell。<br>密码为x，是为了增强系统的安全性，Linux系统为用户提供MD5和Shadow安全密码服务，可以以 root 身份在 /etc/shadow 中查到具体加密后的密码串值。</p>
+<h2 id="修改密码">修改密码</h2>
+<pre><code><span class="title">passwd</span> stonex
+</code></pre><p>需要输入新密码和确认密码。</p>
+<h2 id="添加用户到组">添加用户到组</h2>
+<p>新增一个用户组 admin：</p>
+<pre><code>groupadd <span class="literal">admin</span>
+</code></pre><p>将 stonex 用户添加到组 admin：</p>
+<pre><code>usermod <span class="operator">-a</span> -G admin stonex
+</code></pre><p>-a 表示将用户追加到指定用户组中，-G 指定用户组名称。</p>
+<p>查询 stonex 所在的用户组列表：</p>
+<pre><code>groups stonex
+stonex : stonex <span class="literal">admin</span>
+</code></pre><h2 id="登录">登录</h2>
+<pre><code><span class="title">ssh</span> stonex@<span class="number">192.168.1.123</span>
+</code></pre><h2 id="一些常用命令">一些常用命令</h2>
+<ul>
+<li>删除用户:    <code>userdel -r stonex</code> -r 表示删除用户主目录。</li>
+<li>查询用户: <code>who</code> 查询当前已登录用户列表，<code>whoami</code> 查询当前登录用户信息。</li>
+</ul>
+<h1 id="语言设置">语言设置</h1>
+<p>修改系统语言环境变量：</p>
+<pre><code><span class="keyword">vi</span> /etc/sysconfig/i18n
+</code></pre><p>LANG变量修改成下面这一行：</p>
+<pre><code><span class="constant">LANG</span>=<span class="string">"zh_CN.UTF-8"</span>
+</code></pre><h1 id="总结">总结</h1>
+<p>本文主要总结了Linux系统起初的一些主要且简单的配置和技巧，适合初学者。有了 yum 以后，很多东东都变的简单起来，有更多的时间思考别的，但缺点是必须在线，生产环境下一般都是离线操作，后期有空写个如何搭建 yum 镜像。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="引言">引言</h1>
+<p>Linux有很多分支，CentOS、Ubuntu…<br>本文以CentOS-6.4-x86_64环境介绍当我们拿到一个Linux系统，我们需要做的一些主要配置。<br>]]>
+    
+    </summary>
+    
+      <category term="CentOS" scheme="http://xingxiudong.com/tags/CentOS/"/>
+    
+      <category term="Linux" scheme="http://xingxiudong.com/tags/Linux/"/>
+    
+      <category term="系统安装" scheme="http://xingxiudong.com/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="网络配置" scheme="http://xingxiudong.com/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="Linux" scheme="http://xingxiudong.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[新的开始]]></title>
