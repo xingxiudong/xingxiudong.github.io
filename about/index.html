@@ -132,7 +132,7 @@ Email：&#x78;&#105;&#110;&#103;&#120;&#105;&#x75;&#100;&#111;&#x6e;&#x67;&#x40;
 <p>真正想要了解一只青蛙，传统的解剖不是办法，更好的方式是构造一只青蛙。（Don’t Dissect the Frog, Build It）—— 《程序员的思维修炼》</p>
 </blockquote>
 
-		<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
+			<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
 			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
 			发表日期：2014年9月24日<br>
 			原文地址：<a href="http://xingxiudong.com/about/index.html" title="http://xingxiudong.com/about/index.html">http://xingxiudong.com/about/index.html</a>
@@ -329,11 +329,49 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 
 <!-- 百度统计 End -->
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 <script src="/js/script.js" type="text/javascript"></script>
+
 
   </div>
 </body>
