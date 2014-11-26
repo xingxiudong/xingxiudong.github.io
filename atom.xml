@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-11-19T06:43:18.062Z</updated>
+  <updated>2014-11-26T07:04:23.648Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://xingxiudong.com/2014/11/19/linux-start-config/"/>
     <id>http://xingxiudong.com/2014/11/19/linux-start-config/</id>
     <published>2014-11-19T06:01:21.000Z</published>
-    <updated>2014-11-19T06:07:20.000Z</updated>
+    <updated>2014-11-19T08:05:56.000Z</updated>
     <content type="html"><![CDATA[<h1 id="引言">引言</h1>
 <p>Linux有很多分支，CentOS、Ubuntu…<br>本文以CentOS-6.4-x86_64环境介绍当我们拿到一个Linux系统，我们需要做的一些主要配置。<br><a id="more"></a></p>
 <h1 id="安装">安装</h1>
@@ -69,7 +69,7 @@
 </code></pre></li>
 </ol>
 <h1 id="安装常用软件">安装常用软件</h1>
-<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb -<span class="keyword">y</span> 
+<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb openssh-clients -<span class="keyword">y</span> 
 </code></pre><blockquote>
 <p>wget使用时进度条的刷屏问题按如下方式解决：<br>   yum install gettext -y<br>    msgunfmt /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo -o - |sed ‘s/eta(英国中部时间)/ETA/‘|msgfmt - -o/tmp/zh_CN.mo<br>    cp /tmp/zh_CN.mo /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo</p>
 </blockquote>
