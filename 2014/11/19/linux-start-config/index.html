@@ -151,7 +151,7 @@ Linux有很多分支，CentOS、Ubuntu…本文以CentOS-6.4-x86_64环境介绍�
 </code></pre></li>
 </ol>
 <h1 id="安装常用软件">安装常用软件</h1>
-<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb openssh-clients -<span class="keyword">y</span> 
+<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb openssh-clients subversion -<span class="keyword">y</span> 
 </code></pre><blockquote>
 <p>wget使用时进度条的刷屏问题按如下方式解决：<br>   yum install gettext -y<br>    msgunfmt /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo -o - |sed ‘s/eta(英国中部时间)/ETA/‘|msgfmt - -o/tmp/zh_CN.mo<br>    cp /tmp/zh_CN.mo /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo</p>
 </blockquote>
@@ -234,6 +234,15 @@ stonex : stonex <span class="literal">admin</span>
     
 <nav id="article-nav">
   
+    <a href="/2014/12/23/vim-common-command-ppt-brief/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vim常用命令分享PPT
+        
+      </div>
+    </a>
+  
   
     <a href="/2014/09/19/new-start/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -257,7 +266,7 @@ stonex : stonex <span class="literal">admin</span>
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/感悟/">感悟</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -266,7 +275,7 @@ stonex : stonex <span class="literal">admin</span>
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CentOS/" style="font-size: 10.00px;">CentOS</a><a href="/tags/Linux/" style="font-size: 10.00px;">Linux</a><a href="/tags/database/" style="font-size: 10.00px;">database</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/mysql/" style="font-size: 10.00px;">mysql</a><a href="/tags/oracle/" style="font-size: 10.00px;">oracle</a><a href="/tags/yum/" style="font-size: 10.00px;">yum</a><a href="/tags/函数/" style="font-size: 10.00px;">函数</a><a href="/tags/对象/" style="font-size: 10.00px;">对象</a><a href="/tags/数组/" style="font-size: 15.00px;">数组</a><a href="/tags/系统安装/" style="font-size: 10.00px;">系统安装</a><a href="/tags/继承/" style="font-size: 10.00px;">继承</a><a href="/tags/网络配置/" style="font-size: 10.00px;">网络配置</a><a href="/tags/语法/" style="font-size: 15.00px;">语法</a>
+      <a href="/tags/CentOS/" style="font-size: 10.00px;">CentOS</a><a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a><a href="/tags/database/" style="font-size: 10.00px;">database</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/mysql/" style="font-size: 10.00px;">mysql</a><a href="/tags/oracle/" style="font-size: 10.00px;">oracle</a><a href="/tags/vi/" style="font-size: 10.00px;">vi</a><a href="/tags/vim/" style="font-size: 10.00px;">vim</a><a href="/tags/yum/" style="font-size: 10.00px;">yum</a><a href="/tags/函数/" style="font-size: 10.00px;">函数</a><a href="/tags/对象/" style="font-size: 10.00px;">对象</a><a href="/tags/数组/" style="font-size: 16.67px;">数组</a><a href="/tags/系统安装/" style="font-size: 10.00px;">系统安装</a><a href="/tags/继承/" style="font-size: 10.00px;">继承</a><a href="/tags/网络配置/" style="font-size: 10.00px;">网络配置</a><a href="/tags/语法/" style="font-size: 16.67px;">语法</a>
     </div>
   </div>
 
@@ -275,7 +284,7 @@ stonex : stonex <span class="literal">admin</span>
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -285,6 +294,10 @@ stonex : stonex <span class="literal">admin</span>
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/12/23/vim-common-command-ppt-brief/">Vim常用命令分享PPT</a>
+          </li>
         
           <li>
             <a href="/2014/11/19/linux-start-config/">Linux初配</a>
@@ -300,10 +313,6 @@ stonex : stonex <span class="literal">admin</span>
         
           <li>
             <a href="/2013/12/28/oracle-create-tablespace-and-grant/">Oracle工作起步：创建表空间、用户及给用户授权SQL和模板</a>
-          </li>
-        
-          <li>
-            <a href="/2013/12/27/looking-back-to-2013/">回首2013 —— 2013年我学到的</a>
           </li>
         
       </ul>

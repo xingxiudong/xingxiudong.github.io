@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2014-11-26T07:04:23.648Z</updated>
+  <updated>2014-12-23T07:51:24.685Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -15,11 +15,331 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Vim常用命令分享PPT]]></title>
+    <link href="http://xingxiudong.com/2014/12/23/vim-common-command-ppt-brief/"/>
+    <id>http://xingxiudong.com/2014/12/23/vim-common-command-ppt-brief/</id>
+    <published>2014-12-23T04:59:34.000Z</published>
+    <updated>2014-12-23T07:50:11.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="内容提纲">内容提纲</h1>
+<ul>
+<li>引言<ul>
+<li>读者群体</li>
+<li>为什么要使用vim？</li>
+<li>提前准备</li>
+</ul>
+</li>
+<li>入门<ul>
+<li>工作模式</li>
+<li>基本命令</li>
+</ul>
+</li>
+<li>进阶<ul>
+<li>快速移动光标</li>
+<li>快速编辑</li>
+<li>复制和粘贴</li>
+<li>查找和替换</li>
+</ul>
+</li>
+<li>高级用法<ul>
+<li>翻页</li>
+<li>移动屏幕</li>
+<li>书签</li>
+<li>宏</li>
+<li>visual模式</li>
+<li>列编辑</li>
+<li>分屏</li>
+<li>其他</li>
+</ul>
+</li>
+<li>附：命令模式下常用命令</li>
+</ul>
+<a id="more"></a>
+
+
+
+
+<h1 id="引言">引言</h1>
+<h2 id="读者群体">读者群体</h2>
+<ul>
+<li>经常与linux打交道的人</li>
+<li>程序猿、攻城狮、技术狂</li>
+<li>对vim感兴趣的人</li>
+</ul>
+<h2 id="为什么要使用vim？">为什么要使用vim？</h2>
+<ul>
+<li>操作简洁、高效</li>
+<li>跨平台</li>
+<li>编程式编辑</li>
+<li>优秀的工具和文档 vimtutor</li>
+</ul>
+<h2 id="提前准备">提前准备</h2>
+<ul>
+<li>学习曲线陡峭</li>
+<li>身心是痛苦的</li>
+<li>需要时间</li>
+<li>不断练习和磨练</li>
+</ul>
+<h1 id="一、入门">一、入门</h1>
+<h2 id="工作模式">工作模式</h2>
+<ol>
+<li>Normal模式     Esc</li>
+<li>插入模式         i</li>
+<li>命令模式         :</li>
+<li>可视化模式     v，V，Ctrl-v</li>
+</ol>
+<h2 id="基本命令">基本命令</h2>
+<ul>
+<li>移动光标<pre><code>       ^
+       k              <span class="variable">Hint</span>:  h 键在左边，左移.
+ &lt; h       l &gt;               l 键在右边，右移.
+       j                     j 键看上去像一个向下的箭头，下移.
+       v
+</code></pre></li>
+<li>编辑<pre><code>  <span class="built_in">i</span>
+</code></pre></li>
+<li>撤销和重做<pre><code>  u, Ctrl-R
+</code></pre></li>
+<li>保存和退出<pre><code>  <span class="symbol">:w</span>, <span class="symbol">:q</span>, <span class="symbol">:x</span>
+</code></pre></li>
+</ul>
+<h1 id="二、进阶">二、进阶</h1>
+<h2 id="快速移动光标">快速移动光标</h2>
+<p>以下操作在Normal模式下执行，按Esc进入。</p>
+<ul>
+<li>行内移动光标<pre><code>  ^, $, <span class="number">0</span>
+  w, W
+  b, B
+  e, <span class="keyword">E</span>
+  f, F
+  <span class="number">2</span>f<span class="list">{X}</span>, <span class="list">{n}</span>F<span class="list">{X}</span>
+</code></pre></li>
+<li>行间移动光标<pre><code><span class="attribute">  {n}G, G
+  gg                    → </span>=<span class="string">1G</span>
+</code></pre></li>
+<li>按匹配括号移动光标（“(” “)”，“[” “]”，“{” “}”等等）<pre><code>  <span class="comment">%</span>
+</code></pre></li>
+<li>屏内移动光标<pre><code>  H, M, L
+</code></pre></li>
+<li>按句移动光标<pre><code>  <span class="list">(, )</span>
+</code></pre></li>
+<li>按代码块“{” “}”移动光标（要求“{”或“}”独占一行）<pre><code>  <span class="string">[[, ]]</span>
+</code></pre></li>
+<li>移动光标至上次停留的位置<pre><code>  <span class="string">''</span>                     → 两个单引号
+</code></pre></li>
+<li>移动光标至上次上一次的修改行<pre><code>  &#39;.
+</code></pre></li>
+<li><p>移动光标至上次上一次的修改点</p>
+<pre><code>  `.
+</code></pre><h2 id="快速编辑">快速编辑</h2>
+</li>
+<li><p>进入编辑模式</p>
+<pre><code>  <span class="keyword">I</span>, i
+  a, A
+  x, X
+  d, <span class="keyword">D</span>(=d$)
+  c, <span class="keyword">C</span>(=c$)
+  r, R
+</code></pre></li>
+<li>快速删除<pre><code>  dd, dw, de, d{n}w, df{char}, dt{char}, {n}dd, dgg, d{n}gg, dG, <span class="keyword">...</span>
+  cc, cw, ce, c{n}w, cf{char}, ct{char}, {n}cc, cgg, c{n}gg, cG, <span class="keyword">...</span>
+</code></pre></li>
+<li>重复操作<pre><code>  .
+  <span class="tuple">{n}</span>.
+</code></pre></li>
+<li>大写和小写<pre><code>  gU                     → 变大写命令
+  <span class="keyword">gu</span>                     → 变小写命令
+</code></pre></li>
+<li>更快<pre><code>  &lt;start position&gt;&lt;<span class="command"><span class="keyword">command</span>&gt;&lt;<span class="title">end</span> <span class="title">position</span>&gt;</span>
+                         → <span class="command"><span class="keyword">command</span>可以是<span class="title">d</span>, <span class="title">y</span>, <span class="variable">gU</span>, <span class="title">gu</span>...</span>
+  <span class="number">0</span>y$
+</code></pre></li>
+</ul>
+<h2 id="复制和粘贴">复制和粘贴</h2>
+<ul>
+<li>复制<pre><code>  yy, yw, ye, y{n}w, yf{char}, yt{char}, {n}yy, ygg, y{n}gg, yG, <span class="keyword">...</span>
+  Y(=yy)
+</code></pre></li>
+<li>粘贴<pre><code>  p, P
+</code></pre></li>
+</ul>
+<h2 id="查找和替换">查找和替换</h2>
+<ul>
+<li>向后查找<pre><code>  /
+</code></pre></li>
+<li>向前查找<pre><code>  ?
+</code></pre></li>
+<li>查找下一个<pre><code>  n, <span class="keyword">N</span>
+</code></pre></li>
+<li><p>替换</p>
+<pre><code>  :s/<span class="list">{old}</span>/<span class="list">{new}</span>         → 替换当前行第一个<span class="list">{old}</span>为<span class="list">{new}</span>
+  :s/<span class="list">{old}</span>/<span class="list">{new}</span>/g       → 替换当前行所有的<span class="list">{old}</span>为<span class="list">{new}</span>
+  :s/<span class="list">{old}</span>/<span class="list">{new}</span>/c       → 替换当前行所有的<span class="list">{old}</span>为<span class="list">{new}</span>, 每次提醒
+
+  :%s/<span class="list">{old}</span>/<span class="list">{new}</span>        → 替换所有行的<span class="list">{old}</span>为<span class="list">{new}</span>
+  :<span class="list">{start-row-num}</span>,<span class="list">{end-row-num}</span>s/<span class="list">{old}</span>/<span class="list">{new}</span>
+                         → 替换<span class="list">{start-row-num}</span>行至<span class="list">{end-row-num}</span>行的<span class="list">{old}</span>为<span class="list">{new}</span>
+  :<span class="list">{n}</span>,$s/<span class="list">{old}</span>/<span class="list">{new}</span>    → 替换替换第<span class="list">{n}</span>行开始到最后一行中每一行所有的<span class="list">{old}</span>为<span class="list">{new}</span>
+
+  :s#<span class="list">{old}</span>#<span class="list">{new}</span>         → / 不会作为分隔符
+</code></pre></li>
+</ul>
+<h1 id="三、高级用法">三、高级用法</h1>
+<h2 id="翻页">翻页</h2>
+<ul>
+<li>向上翻页<pre><code>  <span class="title">Ctrl</span> + f               → (page forword)向下整页翻页
+</code></pre></li>
+<li>向下翻页<pre><code>  <span class="title">Ctrl</span> + b               → (page backward)向上整页翻页
+</code></pre></li>
+<li>向上翻半页<pre><code>  Ctrl + <span class="keyword">u</span>               → (page <span class="keyword">up</span>)向上翻半页
+</code></pre></li>
+<li>向下翻半页<pre><code>  Ctrl + d               → (page <span class="preprocessor">down</span>)向下翻半页
+</code></pre></li>
+</ul>
+<h2 id="移动屏幕">移动屏幕</h2>
+<ul>
+<li>移动屏幕，使光标所在行位于屏幕中间<pre><code>  zz
+</code></pre></li>
+<li>移动屏幕，使光标所在行位于屏幕顶部<pre><code>  zt
+</code></pre></li>
+<li>移动屏幕，使光标所在行位于屏幕底部<pre><code>  zb
+</code></pre></li>
+</ul>
+<h2 id="书签">书签</h2>
+<ul>
+<li>设定书签<pre><code>  m<span class="list">{a-z}</span>                → 小写字母应用域为单个文件，大写字母可应用域为全局
+</code></pre></li>
+<li>跳转到书签<pre><code>  <span class="escape">`{</span><span class="literal">a</span>-z} 或 '{<span class="literal">a</span>-z}
+</code></pre></li>
+<li>查看书签<pre><code>  <span class="symbol">:marks</span>
+</code></pre></li>
+</ul>
+<h2 id="宏">宏</h2>
+<ul>
+<li>录制宏<pre><code>  开始录制：<span class="string">q{a-z}</span>
+  完成录制：<span class="keyword">q</span>
+</code></pre></li>
+<li>播放宏<pre><code>  <span class="decorator">@{a-z}</span>
+  <span class="decorator">@@</span>
+</code></pre></li>
+</ul>
+<blockquote>
+<p>示例：qaYp<c-a>q<br>@a<br>@@<br>100@@</c-a></p>
+</blockquote>
+<h2 id="visual模式">visual模式</h2>
+<pre><code>v, V
+Ctrl + v
+</code></pre><h2 id="列编辑">列编辑</h2>
+<pre><code>（Ctrl + v）  +  <span class="keyword">I</span> 
+</code></pre><h2 id="分屏">分屏</h2>
+<pre><code><span class="symbol">:split</span>
+vsplit
+<span class="constant">Ctrl</span> + w, <span class="constant">Ctrl</span> + w + (←↓↑→)  切换分屏
+</code></pre><h2 id="其他">其他</h2>
+<ul>
+<li>寄存器<pre><code>  <span class="string">"{a-Z}, {A-Z}</span>
+</code></pre></li>
+<li>获取系统剪贴板<pre><code>  <span class="string">"+ 或 "</span><span class="keyword">*</span>
+</code></pre></li>
+</ul>
+<h1 id="附：命令模式下常用命令">附：命令模式下常用命令</h1>
+<ul>
+<li>跳转到指定行<pre><code>  :{<span class="keyword">int</span>-number}          → 跳转到行号为{<span class="keyword">int</span>-number}的行
+</code></pre></li>
+<li>设置显示行号<pre><code>  :<span class="operator"><span class="keyword">set</span> <span class="built_in">number</span>            → 显示行号
+  :<span class="keyword">set</span> nonumber          → 隐藏行号
+  :<span class="keyword">set</span> <span class="built_in">number</span>!           → 显示/隐藏行号</span>
+</code></pre></li>
+<li>设置语法高亮<pre><code>  :syntax <span class="literal">on</span>             → 开启语法高亮
+  :syntax <span class="literal">off</span>            → 关闭语法高亮
+</code></pre></li>
+<li>设置显示不可见字符<pre><code>  <span class="symbol">:set</span> list              → 显示不可见字符, 把制表符显示为^<span class="constant">I</span>, 用<span class="variable">$标</span>示行尾
+  <span class="symbol">:set</span> nolist            → 隐藏不可见字符
+</code></pre></li>
+<li>搜索设置<pre><code>  :<span class="keyword">set</span> ignorecase        → 设定查找时忽略大小写
+  :<span class="keyword">set</span> noignorecase      → 取消查找时忽略大小写的设定
+  :<span class="keyword">set</span> hlsearch          → 设置高亮搜索的匹配结果
+  :<span class="keyword">set</span> nohlsearch        → 取消搜索高亮设置
+</code></pre></li>
+<li>设置文件格式<pre><code>  :<span class="operator"><span class="keyword">set</span> fileformat        → 显示当前文件格式
+  :<span class="keyword">set</span> fileformat={<span class="keyword">format</span>}
+                         → 设置当前文件格式</span>
+</code></pre></li>
+<li>设置文件编码<pre><code>  :<span class="keyword">set</span> encoding          → 显示当前文件编码
+  :<span class="keyword">set</span> encoding={encoding}
+                         → 设置当前文件格式
+</code></pre></li>
+</ul>
+<blockquote>
+<p>这些set命令一般都有简写形式，如 set number! 可简写为 set nu!</p>
+</blockquote>
+<h1 id="结束语">结束语</h1>
+<ul>
+<li>本文使用的vim版本是：version 7.2.411</li>
+<li>上面讲到的只是常用的命令，还有更多更高级的功能没有提到。</li>
+<li>建议经常学习新的命令，多操作。</li>
+<li>vim有不少优秀的文档，运行vimtutor直到你熟悉了那些基本命令。</li>
+<li>对于经常和Linux打交道的人学习使用vim能提高工作效率。</li>
+<li>再也不怕裸系统了。</li>
+</ul>
+<h1 id="参考资料">参考资料</h1>
+<blockquote>
+<p><a href="http://www.cnblogs.com/wrmfw/archive/2011/09/08/2170465.html" target="_blank" rel="external">《简明 Vim 练级攻略》</a><br><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html" target="_blank" rel="external">Graphical vi-vim Cheat Sheet and Tutorial</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="内容提纲">内容提纲</h1>
+<ul>
+<li>引言<ul>
+<li>读者群体</li>
+<li>为什么要使用vim？</li>
+<li>提前准备</li>
+</ul>
+</li>
+<li>入门<ul>
+<li>工作模式</li>
+<li>基本命令</li>
+</ul>
+</li>
+<li>进阶<ul>
+<li>快速移动光标</li>
+<li>快速编辑</li>
+<li>复制和粘贴</li>
+<li>查找和替换</li>
+</ul>
+</li>
+<li>高级用法<ul>
+<li>翻页</li>
+<li>移动屏幕</li>
+<li>书签</li>
+<li>宏</li>
+<li>visual模式</li>
+<li>列编辑</li>
+<li>分屏</li>
+<li>其他</li>
+</ul>
+</li>
+<li>附：命令模式下常用命令</li>
+</ul>
+]]>
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://xingxiudong.com/tags/Linux/"/>
+    
+      <category term="vim" scheme="http://xingxiudong.com/tags/vim/"/>
+    
+      <category term="vi" scheme="http://xingxiudong.com/tags/vi/"/>
+    
+      <category term="Linux" scheme="http://xingxiudong.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Linux初配]]></title>
     <link href="http://xingxiudong.com/2014/11/19/linux-start-config/"/>
     <id>http://xingxiudong.com/2014/11/19/linux-start-config/</id>
     <published>2014-11-19T06:01:21.000Z</published>
-    <updated>2014-11-19T08:05:56.000Z</updated>
+    <updated>2014-12-02T07:45:39.000Z</updated>
     <content type="html"><![CDATA[<h1 id="引言">引言</h1>
 <p>Linux有很多分支，CentOS、Ubuntu…<br>本文以CentOS-6.4-x86_64环境介绍当我们拿到一个Linux系统，我们需要做的一些主要配置。<br><a id="more"></a></p>
 <h1 id="安装">安装</h1>
@@ -69,7 +389,7 @@
 </code></pre></li>
 </ol>
 <h1 id="安装常用软件">安装常用软件</h1>
-<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb openssh-clients -<span class="keyword">y</span> 
+<pre><code>yum install <span class="keyword">make</span> wget <span class="keyword">vim</span> unrar unzip ntpdate traceroute redhat-lsb openssh-clients subversion -<span class="keyword">y</span> 
 </code></pre><blockquote>
 <p>wget使用时进度条的刷屏问题按如下方式解决：<br>   yum install gettext -y<br>    msgunfmt /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo -o - |sed ‘s/eta(英国中部时间)/ETA/‘|msgfmt - -o/tmp/zh_CN.mo<br>    cp /tmp/zh_CN.mo /usr/share/locale/zh_CN/LC_MESSAGES/wget.mo</p>
 </blockquote>
