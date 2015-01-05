@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2015-01-05T07:21:47.266Z</updated>
+  <updated>2015-01-05T07:26:25.153Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/"/>
     <id>http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/</id>
     <published>2015-01-05T06:45:19.000Z</published>
-    <updated>2015-01-05T07:21:32.000Z</updated>
+    <updated>2015-01-05T07:23:49.000Z</updated>
     <content type="html"><![CDATA[<h1 id="什么是“脑裂”现象？">什么是“脑裂”现象？</h1>
 <p>由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。<br><a id="more"></a></p>
 <p><!--http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png --><br><img src="http://i3.tietuku.com/575cab6c397310e6.png" alt=""></p>
@@ -62,7 +62,7 @@
     <link href="http://xingxiudong.com/2014/12/23/vim-common-command-ppt-brief/"/>
     <id>http://xingxiudong.com/2014/12/23/vim-common-command-ppt-brief/</id>
     <published>2014-12-23T04:59:34.000Z</published>
-    <updated>2014-12-23T07:56:06.000Z</updated>
+    <updated>2015-01-05T07:24:22.000Z</updated>
     <content type="html"><![CDATA[<h1 id="内容提纲">内容提纲</h1>
 <ul>
 <li>引言<ul>
@@ -367,13 +367,13 @@ vsplit
     
     </summary>
     
-      <category term="Linux" scheme="http://xingxiudong.com/tags/Linux/"/>
+      <category term="linux" scheme="http://xingxiudong.com/tags/linux/"/>
     
       <category term="vim" scheme="http://xingxiudong.com/tags/vim/"/>
     
-      <category term="vi" scheme="http://xingxiudong.com/tags/vi/"/>
+      <category term="shell" scheme="http://xingxiudong.com/tags/shell/"/>
     
-      <category term="Linux" scheme="http://xingxiudong.com/categories/Linux/"/>
+      <category term="linux" scheme="http://xingxiudong.com/categories/linux/"/>
     
   </entry>
   
@@ -382,7 +382,7 @@ vsplit
     <link href="http://xingxiudong.com/2014/11/19/linux-start-config/"/>
     <id>http://xingxiudong.com/2014/11/19/linux-start-config/</id>
     <published>2014-11-19T06:01:21.000Z</published>
-    <updated>2014-12-02T07:45:39.000Z</updated>
+    <updated>2015-01-05T07:26:11.000Z</updated>
     <content type="html"><![CDATA[<h1 id="引言">引言</h1>
 <p>Linux有很多分支，CentOS、Ubuntu…<br>本文以CentOS-6.4-x86_64环境介绍当我们拿到一个Linux系统，我们需要做的一些主要配置。<br><a id="more"></a></p>
 <h1 id="安装">安装</h1>
@@ -496,15 +496,11 @@ stonex : stonex <span class="literal">admin</span>
     
     </summary>
     
-      <category term="CentOS" scheme="http://xingxiudong.com/tags/CentOS/"/>
+      <category term="linux" scheme="http://xingxiudong.com/tags/linux/"/>
     
-      <category term="Linux" scheme="http://xingxiudong.com/tags/Linux/"/>
+      <category term="centos" scheme="http://xingxiudong.com/tags/centos/"/>
     
-      <category term="系统安装" scheme="http://xingxiudong.com/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
-    
-      <category term="网络配置" scheme="http://xingxiudong.com/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="Linux" scheme="http://xingxiudong.com/categories/Linux/"/>
+      <category term="linux" scheme="http://xingxiudong.com/categories/linux/"/>
     
   </entry>
   
@@ -543,7 +539,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/"/>
     <id>http://xingxiudong.com/2014/04/04/centos6.5-yum-install-mysql/</id>
     <published>2014-04-04T09:04:08.000Z</published>
-    <updated>2014-09-23T16:08:06.000Z</updated>
+    <updated>2015-01-05T07:25:48.000Z</updated>
     <content type="html"><![CDATA[<p>如果CentOS可以上网，使用yum安装Mysql非常简单，整理了一些日常常用安装Mysql起步配置。<br><a id="more"></a></p>
 <h1 id="第1步、yum安装mysql">第1步、yum安装mysql</h1>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mysql-server</div></pre></td></tr></table></figure>
@@ -617,7 +613,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="yum" scheme="http://xingxiudong.com/tags/yum/"/>
     
-      <category term="Mysql" scheme="http://xingxiudong.com/categories/Mysql/"/>
+      <category term="mysql" scheme="http://xingxiudong.com/categories/mysql/"/>
     
   </entry>
   
@@ -626,7 +622,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/"/>
     <id>http://xingxiudong.com/2013/12/28/oracle-create-tablespace-and-grant/</id>
     <published>2013-12-28T04:35:00.000Z</published>
-    <updated>2014-09-23T16:10:43.000Z</updated>
+    <updated>2015-01-05T07:24:04.000Z</updated>
     <content type="html"><![CDATA[<p>在工作中我们经常用到Oracle作为生产数据库，对老程序员来说，一个新的项目总是要做一些Oracle数据库初始化的事情，不总结一下对不起这么多年的Oracle使用经验。<br><a id="more"></a></p>
 <h1 id="一、规划">一、规划</h1>
 <p>表空间名称：yourname<br>表空间数据文件存放位置：/u01/app/oracle/oradata/orcl/（select file_name from dba_data_files;）<br>用户名/密码：yourname/yourname<br>说明：表空间名称、用户名、密码开发时因便于记忆一般一致，默认为项目的名称，也可以不同。</p>
@@ -670,7 +666,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="oracle" scheme="http://xingxiudong.com/tags/oracle/"/>
     
-      <category term="Oracle" scheme="http://xingxiudong.com/categories/Oracle/"/>
+      <category term="oracle" scheme="http://xingxiudong.com/categories/oracle/"/>
     
   </entry>
   
@@ -742,7 +738,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/"/>
     <id>http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/</id>
     <published>2012-07-03T14:38:30.000Z</published>
-    <updated>2014-09-26T05:49:34.000Z</updated>
+    <updated>2015-01-05T07:25:22.000Z</updated>
     <content type="html"><![CDATA[<p>9.1、我们为什么要按照严格的编码规范来编码？</p>
 <ol>
 <li>JavaScript是一门弱类型语言，并且它过度的容错。</li>
@@ -775,9 +771,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="数组" scheme="http://xingxiudong.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -786,7 +780,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/"/>
     <id>http://xingxiudong.com/2012/07/02/javascript-the-good-parts-reading-notes-ch8/</id>
     <published>2012-07-02T14:25:30.000Z</published>
-    <updated>2014-09-26T05:43:43.000Z</updated>
+    <updated>2015-01-05T07:25:19.000Z</updated>
     <content type="html"><![CDATA[<p>8.1、Array<br>array.concat(item…)，返回一个新数组（浅拷贝），是由把指定的所有参数添加到array中构成的。  </p>
 <blockquote>
 <p>注1：可有1个或多个参数，如果参数是数组，数组的每个元素会被分别添加。<br>注2：它不修改array，返回的是一个新数组。<br><a id="more"></a></p>
@@ -853,9 +847,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="数组" scheme="http://xingxiudong.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -864,7 +856,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/19/javascript-the-good-parts-reading-notes-ch7/"/>
     <id>http://xingxiudong.com/2012/06/19/javascript-the-good-parts-reading-notes-ch7/</id>
     <published>2012-06-18T16:32:30.000Z</published>
-    <updated>2014-09-30T06:49:38.000Z</updated>
+    <updated>2015-01-05T07:25:14.000Z</updated>
     <content type="html"><![CDATA[<p>7.1、在JavaScript中，正则表达式是对Perl版的改进和发展。</p>
 <p>7.2、^ 表示一个字符串的开始，$表示一个字符串的结束。</p>
 <p>7.3、(?: …) 表示一个非捕获型分组（noncapturing group）。</p>
@@ -924,9 +916,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="数组" scheme="http://xingxiudong.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -935,7 +925,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/17/javascript-the-good-parts-reading-notes-ch6/"/>
     <id>http://xingxiudong.com/2012/06/17/javascript-the-good-parts-reading-notes-ch6/</id>
     <published>2012-06-17T15:09:30.000Z</published>
-    <updated>2014-09-26T05:50:28.000Z</updated>
+    <updated>2015-01-05T07:25:09.000Z</updated>
     <content type="html"><![CDATA[<p>6.1、数组是一段线性分配的内存，它通过整数去计算偏移并访问其中的元素。</p>
 <p>6.2、JavaScript 没有数组数据结构。但提供了一种类数组特性的对象。它把数组的下标转变成字符串，用作其属性。</p>
 <p>6.3、JavaScript 中这种类“数组特性的对象”与一般对象的不同点在于：</p>
@@ -977,9 +967,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="数组" scheme="http://xingxiudong.com/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -988,7 +976,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/17/javascript-the-good-parts-reading-notes-ch5/"/>
     <id>http://xingxiudong.com/2012/06/17/javascript-the-good-parts-reading-notes-ch5/</id>
     <published>2012-06-17T14:31:30.000Z</published>
-    <updated>2014-09-26T05:19:09.000Z</updated>
+    <updated>2015-01-05T07:25:06.000Z</updated>
     <content type="html"><![CDATA[<p>5.1、继承的两个作用：1、代码重用；2、类型系统规范。</p>
 <p>5.2、JavaScript是一门弱类型的语言。不需要类型转换。对象的起源是无关紧要的。</p>
 <p>5.3、JavaScript是一门基于原型的语言，而不是基于类的语言。<br><a id="more"></a></p>
@@ -1035,11 +1023,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="语法" scheme="http://xingxiudong.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-      <category term="继承" scheme="http://xingxiudong.com/tags/%E7%BB%A7%E6%89%BF/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -1048,7 +1032,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/16/javascript-the-good-parts-reading-notes-ch4/"/>
     <id>http://xingxiudong.com/2012/06/16/javascript-the-good-parts-reading-notes-ch4/</id>
     <published>2012-06-16T15:34:00.000Z</published>
-    <updated>2014-09-26T05:19:01.000Z</updated>
+    <updated>2015-01-05T07:25:01.000Z</updated>
     <content type="html"><![CDATA[<p>4.1、在JavaScript中，函数就是对象。</p>
 <p>4.2、函数的对象连接到Function.prototype（该原型对象本身被连接到Object.prototype）。</p>
 <p>4.3、函数在创建的时候附有两个附加的隐藏属性：函数上下文和实现函数行为的代码。<br><a id="more"></a></p>
@@ -1164,11 +1148,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="语法" scheme="http://xingxiudong.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-      <category term="函数" scheme="http://xingxiudong.com/tags/%E5%87%BD%E6%95%B0/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -1177,7 +1157,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/14/javascript-the-good-parts-reading-notes-ch3/"/>
     <id>http://xingxiudong.com/2012/06/14/javascript-the-good-parts-reading-notes-ch3/</id>
     <published>2012-06-13T17:28:30.000Z</published>
-    <updated>2014-09-26T05:19:17.000Z</updated>
+    <updated>2015-01-05T07:24:54.000Z</updated>
     <content type="html"><![CDATA[<p>3.1、JavaScript简单的类型包括数字、字符串、布尔值（true和false）、null值和undefined值。其他所有的值都是对象。</p>
 <p>3.2、JavaScript中的对象是可变键控集合。在JavaScript中，数组是对象，函数是对象，正则表达式是对象，对象也是对象。</p>
 <p>3.3、对象是属性的容器，每个属性都拥有名字和值。属性的名字可以是包括空字符串在内的任意字符串。属性值可以是除undefined值之外的任何值。<br><a id="more"></a></p>
@@ -1218,11 +1198,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="语法" scheme="http://xingxiudong.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-      <category term="对象" scheme="http://xingxiudong.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
@@ -1231,7 +1207,7 @@ stonex : stonex <span class="literal">admin</span>
     <link href="http://xingxiudong.com/2012/06/14/javascript-the-good-parts-reading-notes-ch2/"/>
     <id>http://xingxiudong.com/2012/06/14/javascript-the-good-parts-reading-notes-ch2/</id>
     <published>2012-06-13T17:28:01.000Z</published>
-    <updated>2014-09-26T05:06:34.000Z</updated>
+    <updated>2015-01-05T07:24:41.000Z</updated>
     <content type="html"><![CDATA[<p>2.1、JSLint是一个JavaScript解析器，它能分析JavaScript问题并报告它包含的缺点。它能让你确信你的程序只包含精华的部分。</p>
 <p>2.2、没有用的注释比没有注释更糟糕。<br><a id="more"></a></p>
 <p>2.3、由于块注释（/<em> </em>/）的有些字符可能出现在正则表达式上，不建议使用/<em> </em>/注释，而采用//替代它，例如：  </p>
@@ -1261,9 +1237,7 @@ stonex : stonex <span class="literal">admin</span>
     
       <category term="javascript" scheme="http://xingxiudong.com/tags/javascript/"/>
     
-      <category term="语法" scheme="http://xingxiudong.com/tags/%E8%AF%AD%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://xingxiudong.com/categories/JavaScript/"/>
+      <category term="javascript" scheme="http://xingxiudong.com/categories/javascript/"/>
     
   </entry>
   
