@@ -3,30 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格 | 邢秀东的网络日志</title>
+  <title>Tag: elasticsearch | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格">
-<meta property="og:url" content="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/">
+  <meta name="description" content="好记性不如烂笔头">
+<meta property="og:type" content="website">
+<meta property="og:title" content="邢秀东的网络日志">
+<meta property="og:url" content="http://xingxiudong.com/tags/elasticsearch/">
 <meta property="og:site_name" content="邢秀东的网络日志">
-<meta property="og:description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
-<meta property="og:image" content="/images/javascript-the-good-parts-cover-s.jpg">
+<meta property="og:description" content="好记性不如烂笔头">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格">
-<meta name="twitter:description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
+<meta name="twitter:title" content="邢秀东的网络日志">
+<meta name="twitter:description" content="好记性不如烂笔头">
 
   
     <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
@@ -86,14 +73,16 @@ JavaScript是一门弱类型语言，并且它过度的容错。
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-javascript-the-good-parts-reading-notes-ch9" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-resolve-elasticsearch-split-brain" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" class="article-date">
-  <time datetime="2012-07-03T14:38:30.000Z" itemprop="datePublished">7月 3 2012</time>
+    <a href="/2015/01/05/resolve-elasticsearch-split-brain/" class="article-date">
+  <time datetime="2015-01-05T06:45:19.000Z" itemprop="datePublished">1月 5 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/elasticsearch/">elasticsearch</a>
   </div>
 
   </div>
@@ -103,8 +92,8 @@ JavaScript是一门弱类型语言，并且它过度的容错。
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/resolve-elasticsearch-split-brain/">防止ElasticSearch集群出现脑裂现象的解决办法</a>
     </h1>
   
 
@@ -112,76 +101,35 @@ JavaScript是一门弱类型语言，并且它过度的容错。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>9.1、我们为什么要按照严格的编码规范来编码？</p>
-<ol>
-<li>JavaScript是一门弱类型语言，并且它过度的容错。</li>
-<li>优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。</li>
-<li>可读性强，便于维护、修改或复制。<a id="more"></a>
-
-</li>
-</ol>
-<p>9.2、K&amp;R 代码风格：印在Kernighan 与 Ritchie 合著的《The C Programming Language》一书中广泛采用而得名。它是 C 语言的代码风格。</p>
-<p>9.3、把 { 放在一行的结尾而不是下一行的开头，因为return的原因。</p>
-<p>9.4、注释就像一个时间机器，我用它发送重要的信息给未来的我。</p>
-<p>9.5、努力保持注释是最新的。</p>
-<p>9.6、尽量不用类似如下这样无用注释：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">0</span>; <span class="comment">// 设置 i 为 0.</span></div></pre></td></tr></table></figure>
-
-
-<p>9.7、尽量使用含注释。</p>
-<h2 id="总结">总结</h2>
-<p>这一章节很不符合中国人的阅读习惯，因为需要仔细逐句理解再总结。个人感觉这篇文章<a href="http://www.ruanyifeng.com/blog/2012/04/javascript_programming_style.html" target="_blank" rel="external">《Javascript编程风格》</a>总结的不错。</p>
-<p><img src="/images/javascript-the-good-parts-cover-s.jpg" alt="书籍封面"></p>
-
-			<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
-			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
-			发表日期：2012年7月3日<br>
-			原文地址：<a href="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" title="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/">http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/</a>
-		</p>
+        <h1 id="什么是“脑裂”现象？">什么是“脑裂”现象？</h1>
+<p>由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/05/resolve-elasticsearch-split-brain/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" data-id="lav5hc4t89o3uo45" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/" data-id="i57rc1s1brx8kdw4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elasticsearch/">elasticsearch</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2013/12/27/looking-back-to-2013/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          回首2013 —— 2013年我学到的
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2012/07/02/javascript-the-good-parts-reading-notes-ch8/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">《JavaScript 语言精粹》 读书笔记 —— 第八章 方法</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2012/07/03/javascript-the-good-parts-reading-notes-ch9/" data-title="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格" data-url="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/"></div>
-  </section>
+  
+  
 </section>
         
           <aside id="sidebar">

@@ -3,30 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格 | 邢秀东的网络日志</title>
+  <title>防止ElasticSearch集群出现脑裂现象的解决办法 | 邢秀东的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
+  <meta name="description" content="什么是“脑裂”现象？
+由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格">
-<meta property="og:url" content="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/">
+<meta property="og:title" content="防止ElasticSearch集群出现脑裂现象的解决办法">
+<meta property="og:url" content="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/">
 <meta property="og:site_name" content="邢秀东的网络日志">
-<meta property="og:description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
-<meta property="og:image" content="/images/javascript-the-good-parts-cover-s.jpg">
+<meta property="og:description" content="什么是“脑裂”现象？
+由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。">
+<meta property="og:image" content="http://i3.tietuku.com/575cab6c397310e6.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格">
-<meta name="twitter:description" content="9.1、我们为什么要按照严格的编码规范来编码？
-
-JavaScript是一门弱类型语言，并且它过度的容错。
-优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。
-可读性强，便于维护、修改或复制。">
+<meta name="twitter:title" content="防止ElasticSearch集群出现脑裂现象的解决办法">
+<meta name="twitter:description" content="什么是“脑裂”现象？
+由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。">
 
   
     <link rel="alternative" href="/atom.xml" title="邢秀东的网络日志" type="application/atom+xml">
@@ -86,14 +77,14 @@ JavaScript是一门弱类型语言，并且它过度的容错。
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-javascript-the-good-parts-reading-notes-ch9" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-resolve-elasticsearch-split-brain" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" class="article-date">
-  <time datetime="2012-07-03T14:38:30.000Z" itemprop="datePublished">7月 3 2012</time>
+    <a href="/2015/01/05/resolve-elasticsearch-split-brain/" class="article-date">
+  <time datetime="2015-01-05T06:45:19.000Z" itemprop="datePublished">1月 5 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/elasticsearch/">elasticsearch</a>
   </div>
 
   </div>
@@ -104,7 +95,7 @@ JavaScript是一门弱类型语言，并且它过度的容错。
         
   
     <h1 class="article-title" itemprop="name">
-      《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格
+      防止ElasticSearch集群出现脑裂现象的解决办法
     </h1>
   
 
@@ -112,45 +103,49 @@ JavaScript是一门弱类型语言，并且它过度的容错。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>9.1、我们为什么要按照严格的编码规范来编码？</p>
-<ol>
-<li>JavaScript是一门弱类型语言，并且它过度的容错。</li>
-<li>优秀的程序拥有一个前瞻性的结构，它会遇见未来所需要的可能修改，但不会让其成为过度的负担。</li>
-<li>可读性强，便于维护、修改或复制。<a id="more"></a>
-
-</li>
-</ol>
-<p>9.2、K&amp;R 代码风格：印在Kernighan 与 Ritchie 合著的《The C Programming Language》一书中广泛采用而得名。它是 C 语言的代码风格。</p>
-<p>9.3、把 { 放在一行的结尾而不是下一行的开头，因为return的原因。</p>
-<p>9.4、注释就像一个时间机器，我用它发送重要的信息给未来的我。</p>
-<p>9.5、努力保持注释是最新的。</p>
-<p>9.6、尽量不用类似如下这样无用注释：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">0</span>; <span class="comment">// 设置 i 为 0.</span></div></pre></td></tr></table></figure>
-
-
-<p>9.7、尽量使用含注释。</p>
-<h2 id="总结">总结</h2>
-<p>这一章节很不符合中国人的阅读习惯，因为需要仔细逐句理解再总结。个人感觉这篇文章<a href="http://www.ruanyifeng.com/blog/2012/04/javascript_programming_style.html" target="_blank" rel="external">《Javascript编程风格》</a>总结的不错。</p>
-<p><img src="/images/javascript-the-good-parts-cover-s.jpg" alt="书籍封面"></p>
+        <h1 id="什么是“脑裂”现象？">什么是“脑裂”现象？</h1>
+<p>由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。<br><a id="more"></a></p>
+<p><!--http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png --><br><img src="http://i3.tietuku.com/575cab6c397310e6.png" alt="ElasticSearch"></p>
+<h1 id="如何避免脑裂问题？">如何避免脑裂问题？</h1>
+<p>避免脑裂现象，用到的一个参数是：discovery.zen.minimum_master_nodes。这个参数决定了要选举一个Master需要多少个节点（最少候选节点数）。默认值是1。根据一般经验这个一般设置成 N/2 + 1，N是集群中节点的数量，例如一个有3个节点的集群，minimum_master_nodes 应该被设置成 3/2 + 1 = 2（向下取整）。</p>
+<p>用到的另外一个参数是：discovery.zen.ping.timeout，等待ping响应的超时时间，默认值是3秒。如果网络缓慢或拥塞，建议略微调大这个值。这个参数不仅仅适应更高的网络延迟，也适用于在一个由于超负荷而响应缓慢的节点的情况。</p>
+<p>如果您刚开始使用elasticsearch，建议搭建拥有3个节点的集群，这种方式可以把discovery.zen.minimum_master_nodes设置成2，这样就限制了发生脑裂现象的可能，且保持着高度的可用性：如果你设置了副本，在丢失一个节点的情况下，集群仍可运行。</p>
+<h1 id="真的高枕无忧了？">真的高枕无忧了？</h1>
+<p>其实问题依然存在，ES的issue空间也在讨论一个特例情况<a href="https://github.com/elasticsearch/elasticsearch/issues/2488" target="_blank" rel="external">《#2488》</a>：即使 minimum_master_nodes 设置了一个正确的值，脑裂也有可能发生。</p>
+<h1 id="如何识别这个问题？">如何识别这个问题？</h1>
+<p>在您的集群里面尽快识别这个问题非常重要。一个比较容易的方法是定时获取每一个节点/_nodes响应，它返回了集群中所有节点的状态报告，如果两个节点返回的集群状态不一样，就是一个脑裂情况发生的警示信号。</p>
+<h1 id="新增解决方案">新增解决方案</h1>
+<p>对于一个具有全功能的ES节点，必须要有一个活动的Master节点。ES1.4.0.Beta1后，新增了一项没有Master时阻塞集群操作设置：discovery.zen.no_master_block。</p>
+<p>当集群中没有活动的Master节点后，该设置指定了哪些操作（read、write）需要被拒绝（即阻塞执行）。有两个设置值：all和write，默认为wirte。</p>
+<p>这项配置不会对基本api（例如集群状态、节点信息和状态API）产生影响，这些节点在任何节点上执行都不会被阻塞。</p>
+<h1 id="总结">总结</h1>
+<p>脑裂问题依然是一个比较难以解决的问题，最终解决方案也是妥协的结果。这个问题也是分布式系统都会面临的问题。一下子想到了前几天看到的CAP理论，难道只有CP或者AP？<br>总体感觉ES还很年轻，但因为它的开箱即用、天生集群、自动容错、扩展性强等优点，还是选择它来做全文检索。</p>
+<h1 id="参考资料">参考资料</h1>
+<ul>
+<li><a href="http://blog.trifork.com/2013/10/24/how-to-avoid-the-split-brain-problem-in-elasticsearch/" target="_blank" rel="external">HOW TO AVOID THE SPLIT-BRAIN PROBLEM IN ELASTICSEARCH</a></li>
+<li><a href="https://github.com/elasticsearch/elasticsearch/issues/2488" target="_blank" rel="external">minimum_master_nodes does not prevent split-brain if splits are intersecting #2488</a></li>
+<li><a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/modules-discovery-zen.html#no-master-block" target="_blank" rel="external">zen discovery</a></li>
+<li><a href="https://www.gitbook.com/book/shgy/mastering-elasticsearch" target="_blank" rel="external">《Mastering Elasticsearch(中文版)》</a></li>
+</ul>
 
 			<p style="border:1px solid #ccc;border-radius:5px;padding:1em 2em;margin-top:3em;background-color:#FFFAFA;color:#777;font-family:'Droid Serif', Georgia, serif;font-size: 14px;">
 			版权声明：原创作品, 欢迎自由转载-保持署名-非商业性使用-禁止衍生（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">创意共享3.0许可证</a>）。<br>
-			发表日期：2012年7月3日<br>
-			原文地址：<a href="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" title="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/">http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/</a>
+			发表日期：2015年1月5日<br>
+			原文地址：<a href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/" title="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/">http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/</a>
 		</p>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/" data-id="lav5hc4t89o3uo45" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/" data-id="i57rc1s1brx8kdw4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elasticsearch/">elasticsearch</a></li></ul>
 
     </footer>
   </div>
@@ -158,19 +153,10 @@ JavaScript是一门弱类型语言，并且它过度的容错。
     
 <nav id="article-nav">
   
-    <a href="/2013/12/27/looking-back-to-2013/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          回首2013 —— 2013年我学到的
-        
-      </div>
-    </a>
   
-  
-    <a href="/2012/07/02/javascript-the-good-parts-reading-notes-ch8/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/12/23/vim-common-command-ppt-brief/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">《JavaScript 语言精粹》 读书笔记 —— 第八章 方法</div>
+      <div class="article-nav-title">Vim常用命令分享PPT</div>
     </a>
   
 </nav>
@@ -180,7 +166,7 @@ JavaScript是一门弱类型语言，并且它过度的容错。
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2012/07/03/javascript-the-good-parts-reading-notes-ch9/" data-title="《JavaScript 语言精粹》 读书笔记 —— 第九章 代码风格" data-url="http://xingxiudong.com/2012/07/03/javascript-the-good-parts-reading-notes-ch9/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/05/resolve-elasticsearch-split-brain/" data-title="防止ElasticSearch集群出现脑裂现象的解决办法" data-url="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/"></div>
   </section>
 </section>
         
