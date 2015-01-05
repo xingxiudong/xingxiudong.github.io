@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2015-01-05T07:26:25.153Z</updated>
+  <updated>2015-01-05T07:29:20.560Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -19,20 +19,20 @@
     <link href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/"/>
     <id>http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/</id>
     <published>2015-01-05T06:45:19.000Z</published>
-    <updated>2015-01-05T07:23:49.000Z</updated>
+    <updated>2015-01-05T07:29:11.000Z</updated>
     <content type="html"><![CDATA[<h1 id="什么是“脑裂”现象？">什么是“脑裂”现象？</h1>
 <p>由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。<br><a id="more"></a></p>
 <p><!--http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png --><br><img src="http://i3.tietuku.com/575cab6c397310e6.png" alt=""></p>
 <h1 id="如何避免脑裂问题？">如何避免脑裂问题？</h1>
 <p>避免脑裂现象，用到的一个参数是：discovery.zen.minimum_master_nodes。这个参数决定了要选举一个Master需要多少个节点（最少候选节点数）。默认值是1。根据一般经验这个一般设置成 N/2 + 1，N是集群中节点的数量，例如一个有3个节点的集群，minimum_master_nodes 应该被设置成 3/2 + 1 = 2（向下取整）。</p>
 <p>用到的另外一个参数是：discovery.zen.ping.timeout，等待ping响应的超时时间，默认值是3秒。如果网络缓慢或拥塞，建议略微调大这个值。这个参数不仅仅适应更高的网络延迟，也适用于在一个由于超负荷而响应缓慢的节点的情况。</p>
-<p>如果您刚开始使用elasticsearch，建议搭建拥有3个节点的集群，这种方式可以把discovery.zen.minimum_master_nodes设置成2，这样就限制了发生脑裂现象的可能，且保持着高度的可用性：如果你设置了副本，在丢失一个节点的情况下，集群仍可运行。</p>
+<p>如果您刚开始使用<a href="http://www.elasticsearch.org/" target="_blank" rel="external">elasticsearch</a>，建议搭建拥有3个节点的集群，这种方式可以把discovery.zen.minimum_master_nodes设置成2，这样就限制了发生脑裂现象的可能，且保持着高度的可用性：如果你设置了副本，在丢失一个节点的情况下，集群仍可运行。</p>
 <h1 id="真的高枕无忧了？">真的高枕无忧了？</h1>
 <p>其实问题依然存在，ES的issue空间也在讨论一个特例情况<a href="https://github.com/elasticsearch/elasticsearch/issues/2488" target="_blank" rel="external">《#2488》</a>：即使 minimum_master_nodes 设置了一个正确的值，脑裂也有可能发生。</p>
 <h1 id="如何识别这个问题？">如何识别这个问题？</h1>
 <p>在您的集群里面尽快识别这个问题非常重要。一个比较容易的方法是定时获取每一个节点/_nodes响应，它返回了集群中所有节点的状态报告，如果两个节点返回的集群状态不一样，就是一个脑裂情况发生的警示信号。</p>
 <h1 id="新增解决方案">新增解决方案</h1>
-<p>对于一个具有全功能的ES节点，必须要有一个活动的Master节点。ES1.4.0.Beta1后，新增了一项没有Master时阻塞集群操作设置：discovery.zen.no_master_block。</p>
+<p>对于一个具有全功能的ES节点，必须要有一个活动的Master节点。ES1.4.0.Beta1后，新增了一项没有Master时阻塞集群操作设置：<a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/modules-discovery-zen.html#no-master-block" target="_blank" rel="external">discovery.zen.no_master_block</a>。</p>
 <p>当集群中没有活动的Master节点后，该设置指定了哪些操作（read、write）需要被拒绝（即阻塞执行）。有两个设置值：all和write，默认为wirte。</p>
 <p>这项配置不会对基本api（例如集群状态、节点信息和状态API）产生影响，这些节点在任何节点上执行都不会被阻塞。</p>
 <h1 id="总结">总结</h1>
