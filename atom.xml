@@ -4,7 +4,7 @@
   <subtitle><![CDATA[使你疲劳的不是远方的高山，而且是你鞋里面的一粒砂子]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xingxiudong.com/"/>
-  <updated>2015-01-28T05:44:04.802Z</updated>
+  <updated>2015-01-28T05:50:43.864Z</updated>
   <id>http://xingxiudong.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[防止ElasticSearch集群出现脑裂现象的解决办法]]></title>
+    <title><![CDATA[如何防止ElasticSearch集群出现脑裂现象]]></title>
     <link href="http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/"/>
     <id>http://xingxiudong.com/2015/01/05/resolve-elasticsearch-split-brain/</id>
     <published>2015-01-05T06:45:19.000Z</published>
-    <updated>2015-01-05T07:29:11.000Z</updated>
+    <updated>2015-01-28T05:50:15.000Z</updated>
     <content type="html"><![CDATA[<h1 id="什么是“脑裂”现象？">什么是“脑裂”现象？</h1>
 <p>由于某些节点的失效，部分节点的网络连接会断开，并形成一个与原集群一样名字的集群，这种情况称为集群脑裂（split-brain）现象。这个问题非常危险，因为两个新形成的集群会同时索引和修改集群的数据。<br><a id="more"></a></p>
 <p><!--http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png --><br><img src="http://i3.tietuku.com/575cab6c397310e6.png" alt=""></p>
