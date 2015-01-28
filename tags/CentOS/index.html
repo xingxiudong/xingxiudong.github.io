@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +28,9 @@
   
 </head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+<div id="container">
+  <div id="wrap">
+    <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
@@ -60,30 +61,24 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-		<!-- Baidu -->
-        <!--<form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
-          <input name=tn type=hidden value="bds">
-          <input name=cl type=hidden value="3">
-          <input name=ct type=hidden value="2097152">
-          <input type="hidden" name="si" value="xingxiudong.com">
-        </form>-->
+        
 		
-		<!-- Google -->
-        <form action="https://www.google.com.hk/search" method="get" accept-charset="utf-8" class="search-form">
+		
+		
+		
+        <form action="http://www.bing.com/search" method="get" accept-charset="utf-8" class="search-form">
           <input type="search" name="as_q" maxlength="20" class="search-form-input" placeholder="Search">
-          <input type="submit" value="" class="search-form-submit">
+          <input type="submit" value="" class="search-form-submit" onclick="this.form.q.value = this.form.as_q.value + ' site:' + this.form.as_sitesearch.value">
 		  <input type="hidden" name="as_sitesearch" value="xingxiudong.com">
-		  <!--<input type="hidden" name="gws_rd" value="ssl">
-		  <input type="hidden" name="safe" value="active">-->
+		  <input type="hidden" name="q" value="">
         </form>
+        
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
+    <div class="outer">
+      <section id="main">
   
     <article id="post-linux-start-config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -122,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2014/11/19/linux-start-config/" data-id="dgwe2nq5frbnhdbm" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2014/11/19/linux-start-config/" data-id="9yj788xfkfn3q12x" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -141,8 +136,8 @@
   
   
 </section>
-        
-          <aside id="sidebar">
+      
+      <aside id="sidebar">
   
     
   <div class="widget-wrap">
@@ -246,9 +241,9 @@
 
   
 </aside>
-        
-      </div>
-      <footer id="footer">
+      
+    </div>
+    <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -259,8 +254,8 @@
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+  </div>
+  <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
   
@@ -269,7 +264,13 @@
     <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
-    
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="//img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"xingxiudong"};
@@ -302,9 +303,14 @@ var duoshuoQuery = {short_name:"xingxiudong"};
 
 <!-- 百度统计 Start -->
 
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F54f0811619534f1ad75482a915f7fde0' type='text/javascript'%3E%3C/script%3E"));
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?54f0811619534f1ad75482a915f7fde0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
 <!-- 百度统计 End -->
@@ -313,46 +319,10 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 
 
 
-<! -- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-                processEscapes: true
-                    
-}
-  
-        });
-</script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-                  
-}
-    
-        });
-</script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Queue(function() {
-            var all = MathJax.Hub.getAllJax(), i;
-            for(i=0; i < all.length; i += 1) {
-                            all[i].SourceElement().parentNode.className += ' has-jax';
-                                    
-            }
-                
-        });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
 <script src="/js/script.js" type="text/javascript"></script>
 
 
-  </div>
+</div>
 </body>
 </html>
