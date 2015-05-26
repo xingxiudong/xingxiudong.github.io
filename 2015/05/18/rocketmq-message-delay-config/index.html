@@ -104,7 +104,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>RocketMQ 支持定时消息，但是不支持任意时间精度，仅支持特定的 level，例如定时 5s， 10s， 1m 等。其中，level=0 级表示不延时，level=1 表示 1 级延时，level=2 表示 2 级延时，以此类推。</p>
+        <!-- toc -->
+
+<p>RocketMQ 支持定时消息，但是不支持任意时间精度，仅支持特定的 level，例如定时 5s， 10s， 1m 等。其中，level=0 级表示不延时，level=1 表示 1 级延时，level=2 表示 2 级延时，以此类推。</p>
 <a id="more"></a>
 
 <h1 id="如何配置">如何配置</h1>
@@ -121,7 +123,7 @@
 </blockquote>
 <h1 id="如何发送延时消息">如何发送延时消息</h1>
 <p>发送延时消息只需要在客户端（rocketmq-client端）待发送的消息（ com.alibaba.rocketmq.common.message.Message ）中设置延时级别即可。</p>
-<p>设置消息延时 10s 发送 Producer 端代码如下：</p>
+<p>“设置消息延时 10s 消费”的 Producer 端代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Message msg = <span class="keyword">new</span> Message(topic, tags, keys, body);</div><div class="line">msg.setDelayTimeLevel(<span class="number">3</span>);</div><div class="line">...</div><div class="line">SendResult sendResult = getMQProducer().send(msg);</div><div class="line">...</div></pre></td></tr></table></figure>
 
 <p>其中 Message 是 com.alibaba.rocketmq.common.message.Message 。</p>
@@ -136,7 +138,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://xingxiudong.com/2015/05/18/rocketmq-message-delay-config/" data-id="dnnaedbugzxvbjje" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://xingxiudong.com/2015/05/18/rocketmq-message-delay-config/" data-id="yf9xedqzsu6qw3sn" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
